@@ -17,7 +17,7 @@ const startServer = async () => {
     console.log(`incoming ${req.method} REQUEST, from ${req.url}`)
     next()
   })
-  app.use(router)
+  app.use('/api', router)
   app.listen(port, () => {
     console.log(`server running on port ${port}`)
   })
