@@ -10,22 +10,39 @@ const Slider = () => {
 
   const next = () => setCurrent(current === dummyData.length -1 ? 0 : current + 1)
   const previous = () => setCurrent(current === 0 ? dummyData.length -1 : current - 1)
-  const displayInfo = () => setInfo(!info)
+  const displayInfo = () => setInfo(true)
+  const removeInfo = () => setInfo(false)
 
   return (
-    <section onMouseEnter={displayInfo} onMouseLeave={displayInfo} className='relative flex flex-row justify-evenly m-8 w-80' >
-    <FaAngleDoubleLeft className='absolute top-1/2 -left-5 cursor-pointer z-10' onClick={previous} />
-    <FaAngleDoubleRight className='absolute top-1/2 -right-16 cursor-pointer z-10' onClick={next} />
+    <section className='relative h-5/6 ml-10 w-1/3'>
+    <>
       {
         dummyData.map((c, i) => {
           return (
-            <div className={i === current ? 'opacity-100 transition duration-500 ease in' : 'opacity-0'}>
-              { i === current && (<img className='rounded-xl w-6/8' src={c.image} alt={c.title} />) }
+            <div 
+            key={c._id}
+            onMouseEnter={displayInfo} onMouseLeave={removeInfo} 
+            className={i === current ? 'opacity-100 w-3/4 h-full transition duration-500 ease in relative' : 'opacity-0'}>
+              { i === current && (<img className='rounded-xl shadow-2xl  object-cover h-full  w-full' src={c.image} alt={c.title} />) }
+              {i === current && info && 
+              <InfoBar
+                price={c.price}
+                origin={c.origin}
+                producer={c.producer}
+                process={c.process}
+                profile={c.profile}
+                url={c.url}
+                description={c.description}
+                notes={c.notes} />
+            }
+               <FaAngleDoubleLeft color='white' size='9%' className=' shadow-md absolute bottom-4 left-4 cursor-pointer z-10 text-3xl' onClick={previous} />
+              <FaAngleDoubleRight color='white' size='9%' className='shadow-md absolute bottom-4 right-4 cursor-pointer z-10 text-3xl' onClick={next} />
             </div>
             )}
             )
       }
-    {info && <InfoBar />}
+      </>
+    
     </section>
   )
 }

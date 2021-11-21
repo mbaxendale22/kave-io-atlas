@@ -1,16 +1,13 @@
 import React from 'react'
-import SidebarMenu from './SidebarMenu.js'
-import Header from './Header.js'
 import Slider from './Slider.js'
 
 
 const LandingPage = () => {
   return (
     <>
-    <div className='flex'>
-      <SidebarMenu />
-    </div> 
-    <section>
+    <section className='grid grid-cols-1 grid-rows-3 gap-5' style={{border: '2px solid black'}}>
+      <Slider /> 
+      <Slider /> 
       <Slider /> 
     </section>
     </>

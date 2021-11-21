@@ -8,3 +8,13 @@
   margin: 0;
   padding: 0;
 }
+
+@layer components {
+  .more-info {
+    @apply flex justify-center items-center bg-blue-300 absolute rounded-2xl h-4 w-24 left-5 top-0 text-xs
+  }
+
+  .btn {
+    @apply rounded-md py-2 px-3 uppercase text-xs font-bold cursor-pointer shadow-md
+  }
+}
