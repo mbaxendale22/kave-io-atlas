@@ -14,7 +14,7 @@ const Slider = () => {
   const removeInfo = () => setInfo(false)
 
   return (
-    <section className='relative h-5/6 ml-10 w-1/3'>
+    <section className=' flex justify-center items-center relative h-1/4 w-1/3'>
     <>
       {
         dummyData.map((c, i) => {
