@@ -14,7 +14,7 @@ const Slider = () => {
   const removeInfo = () => setInfo(false)
 
   return (
-    <section className=' flex justify-center items-center relative h-1/4 w-1/3'>
+    <section style={{border: '2px solid black'}} className=' flex justify-center items-center relative h-3/6 w-6/12'>
     <>
       {
         dummyData.map((c, i) => {
@@ -22,7 +22,7 @@ const Slider = () => {
             <div 
             key={c._id}
             onMouseEnter={displayInfo} onMouseLeave={removeInfo} 
-            className={i === current ? 'opacity-100 w-3/4 h-full transition duration-500 ease in relative' : 'opacity-0'}>
+            className={i === current ? 'opacity-100 w-full h-full transition duration-500 ease in relative' : 'opacity-0'}>
               { i === current && (<img className='rounded-xl shadow-2xl  object-cover h-full  w-full' src={c.image} alt={c.title} />) }
               {i === current && info && 
               <InfoBar
