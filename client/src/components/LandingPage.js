@@ -63,7 +63,7 @@ const LandingPage = () => {
 
 
   return (
-    <main className='h-screen flex' style={{border: '2px solid black'}}>
+    <main className='h-screen flex'>
       <div className='w-1/2'>
         <section>
           BASIC INSTRUCTIONS ON HOW IT WORKS
@@ -104,9 +104,9 @@ const LandingPage = () => {
         <div onClick={resetFilter}>Reset</div>
         </section>
       </div>
-      <div className='w-1/2'>
-        <section style={{border: '2px solid black'}} className='flex flex-col justify-evenly items-center h-full w-full mx-4'>
-        <Slider /> 
+      <div className='w-1/2 flex justify-center items-center m-5'>
+        <section style={{border: '1px solid black'}} className='grid grid-cols-3 grid-rows-3 gap-5 h-full w-full'>
+        <Slider />
         </section>
       </div>
       
