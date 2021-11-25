@@ -21,8 +21,8 @@
 }
 
 .strikethrough {
-  text-decoration: line-through;
-  text-decoration-color: red;
+  color: red;
   transform: scale(1.08);
-  font-style: italic;
+  /* font-style: italic; */
 }
+

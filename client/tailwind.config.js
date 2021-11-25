@@ -7,9 +7,10 @@ module.exports = {
         Montserrat: [ 'Montserrat', 'sans-serif' ],
         Roboto: [ 'Roboto Mono', 'monospace' ]
       },
-      // backgroundImage: {
-      //   'main-pattern': "url('/src/assets/subtle_dots_@2X.png')"
-      // },
+      fontSize : {
+        'xxs' : '0.65rem'
+      }
+   
     },
   },
   variants: {

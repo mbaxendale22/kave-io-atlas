@@ -7,6 +7,15 @@ const LandingPage = () => {
   const [ process, setProcess ] = useState(null)
   const [ profile, setProfile ] = useState(null)
 
+  const handleToggle = e => {
+    document.getElementById('more-recs').style.cssText = 'display: flex'
+    window.scroll({
+      top: 750,
+      left: 0,
+      behavior: 'smooth'
+    })
+
+  }
   
   const strike = e => {
     const origins = [ ...document.getElementById('origin-wrapper').childNodes ]
@@ -50,6 +59,7 @@ const LandingPage = () => {
     }
   }
 
+
   const resetFilter = e => {
     const current = [... document.getElementsByClassName('strikethrough')]
     for (const x of current){
@@ -63,12 +73,13 @@ const LandingPage = () => {
 
 
   return (
+    <>
     <main className='h-screen flex'>
-      <div className='w-1/2'>
+      <div className='w-2/5'>
         <section>
           BASIC INSTRUCTIONS ON HOW IT WORKS
         </section>
-        <section className='' style={{border: '2px solid black'}}>
+        <section style={{border: '2px solid black'}}>
             <h2>/*/ FILTER BY REGION /*/</h2>
           <div id='origin-wrapper' className='font-Roboto justify-center flex flex-wrap w-full p-8'>
             <span data-id='Boliva' onClick={strike}>BOLIVA // </span> 
@@ -104,13 +115,20 @@ const LandingPage = () => {
         <div onClick={resetFilter}>Reset</div>
         </section>
       </div>
-      <div className='w-1/2 flex justify-center items-center m-5'>
-        <section style={{border: '1px solid black'}} className='grid grid-cols-3 grid-rows-3 gap-5 h-full w-full'>
+      <div className='w-3/5 flex flex-col justify-evenly items-center mx-5 mt-2'>
+        <section style={{border: '1px solid black'}} className='grid grid-cols-6 grid-rows-6 h-5/6 w-full'>
         <Slider />
         </section>
+        <button onClick={handleToggle}>show more</button>
       </div>
       
     </main>
+  <section id='more-recs' className='h-screen hidden'>
+    <p>more content</p>
+  </section>
+
+  
+  </>
   )
 }
 
