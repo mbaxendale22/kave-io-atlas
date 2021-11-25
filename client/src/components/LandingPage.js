@@ -14,9 +14,8 @@ const LandingPage = () => {
       left: 0,
       behavior: 'smooth'
     })
-
   }
-  
+ 
   const strike = e => {
     const origins = [ ...document.getElementById('origin-wrapper').childNodes ]
     const [ checkForStrike ] = origins.filter(x => x.classList.contains('strikethrough')) 
@@ -32,6 +31,7 @@ const LandingPage = () => {
       return
     }
   }
+
   const secondStrike = e => {
     const processes = [ ...document.getElementById('process-wrapper').childNodes ]
     const [ checkForStrike ] = processes.filter(x => x.classList.contains('strikethrough')) 
@@ -77,11 +77,12 @@ const LandingPage = () => {
     <main className='h-screen flex'>
       <div className='w-2/5'>
         <section>
-          BASIC INSTRUCTIONS ON HOW IT WORKS
+          <h2>TO GET STARTED CHOOSE AT LEAST ONE FILTER BELOW</h2>
+          <h2>COMBINE THE FILTERS FOR MORE SPECIFIC RESULTS</h2>
         </section>
-        <section style={{border: '2px solid black'}}>
-            <h2>/*/ FILTER BY REGION /*/</h2>
-          <div id='origin-wrapper' className='font-Roboto justify-center flex flex-wrap w-full p-8'>
+        <section className='text-center' style={{border: '2px solid black'}}>
+            <h2>REGION</h2>
+          <div id='origin-wrapper' className='font-Roboto justify-center flex flex-wrap w-full p-5'>
             <span data-id='Boliva' onClick={strike}>BOLIVA // </span> 
             <span data-id='Brazil' onClick={strike}>BRAZIL // </span> 
             <span data-id='Colombia' onClick={strike}>COLOMBIA // </span> 
@@ -94,17 +95,19 @@ const LandingPage = () => {
             <span data-id='Nicaragua' onClick={strike}>NICARAGUA // </span> 
           </div>  
         </section> 
-        <section>
+        <section className='text-center'>
           <hr className= 'w-1/2' />
-        <div style={{border: '2px solid black'}} id='process-wrapper' className='font-Roboto p-8 flex justify-center flex-wrap w-full'>
+          <h2>PROCESS</h2>
+        <div style={{border: '2px solid black'}} id='process-wrapper' className='font-Roboto p-5 flex justify-center flex-wrap w-full'>
           <span onClick={secondStrike}>WASHED //</span> 
           <span onClick={secondStrike}>HONEY //</span> 
           <span onClick={secondStrike}>NATURAL //</span>   
         </div>
         </section> 
-        <section>
+        <section className='text-center'>
+        <h2>PROFILE</h2>
         <hr className= 'w-1/2' />
-        <div style={{border: '2px solid black'}} id='profile-wrapper' className='font-Roboto p-8 flex justify-center flex-wrap w-full'>
+        <div style={{border: '2px solid black'}} id='profile-wrapper' className='font-Roboto p-5 flex justify-center flex-wrap w-full'>
           <span onClick={thirdStrike}>FILTER //</span> 
           <span onClick={thirdStrike}>ESPRESSO //</span> 
           <span onClick={thirdStrike}>OMNI //</span>   
@@ -119,7 +122,7 @@ const LandingPage = () => {
         <section style={{border: '1px solid black'}} className='grid grid-cols-6 grid-rows-6 h-5/6 w-full'>
         <Slider />
         </section>
-        <button onClick={handleToggle}>show more</button>
+        <button onClick={handleToggle}>explore</button>
       </div>
       
     </main>
