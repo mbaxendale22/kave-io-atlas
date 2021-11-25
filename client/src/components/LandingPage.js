@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Slider from './Slider.js'
+import Login from './Login.js'
 
 
 const LandingPage = () => {
@@ -8,9 +9,10 @@ const LandingPage = () => {
   const [ profile, setProfile ] = useState(null)
 
   const handleToggle = e => {
-    document.getElementById('more-recs').style.cssText = 'display: flex'
+    document.getElementById('more-recs').classList.remove('hide-page')
+    document.getElementById('more-recs').classList.add('show-page')
     window.scroll({
-      top: 750,
+      top: 950,
       left: 0,
       behavior: 'smooth'
     })
@@ -126,8 +128,8 @@ const LandingPage = () => {
       </div>
       
     </main>
-  <section id='more-recs' className='h-screen hidden'>
-    <p>more content</p>
+  <section id='more-recs'>
+    <Login />
   </section>
 
   

@@ -18,6 +18,18 @@
   .btn {
     @apply rounded-md py-2 px-3 uppercase text-xs font-bold cursor-pointer shadow-md
   }
+  .show-page {
+    @apply h-screen flex justify-center items-center
+  }
+  .hide-page {
+    @apply h-screen hidden
+  }
+  .flex-r-c {
+    @apply flex justify-center items-center
+  }
+  .flex-c-c {
+    @apply flex flex-col justify-center items-center
+  }
 }
 
 .strikethrough {
