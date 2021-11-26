@@ -30,6 +30,9 @@
   .flex-c-c {
     @apply flex flex-col justify-center items-center
   }
+  .form-input {
+    @apply border-2 border-gray-400 rounded-md text-sm w-2/3
+  }
 }
 
 .strikethrough {
