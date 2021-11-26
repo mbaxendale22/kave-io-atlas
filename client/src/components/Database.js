@@ -31,7 +31,7 @@ const [ roaster, setRoaster ] = useState({
 })
 
 const addBorder = () => {
-  const inputs = [ ...document.querySelectorAll('input') ]
+  const inputs = [ ...document.querySelectorAll('input'), ...document.querySelectorAll('textarea') ]
   inputs.forEach(i => i.classList.add('form-input'))
 }
 
@@ -54,7 +54,8 @@ const handleSubmit = async e => {
   console.log(note1, note2, note3)
   presubmit.notes = []
   presubmit.notes.push(note1, note2, note3)
-  console.log(presubmit)
+  const inputs = [ ...document.querySelectorAll('input') ]
+  inputs.forEach(i => i.value= '' )
   try {
     await axios.post('/api/add-coffee', presubmit)
   } catch (err) {
