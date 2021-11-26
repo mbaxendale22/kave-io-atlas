@@ -14,8 +14,9 @@ export const getCoffees = async (req, res) => {
 }
 
 export const createCoffee = async (req, res) => {
+  console.log(req.body)
   try {
-    const { newCoffee } = { ...req.body }
+    const newCoffee = { ...req.body }
     const addCoffee = await Coffee.create(newCoffee)
     return res.status(201).json(addCoffee)
   } catch (err) {
