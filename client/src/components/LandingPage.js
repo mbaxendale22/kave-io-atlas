@@ -129,7 +129,7 @@ const LandingPage = () => {
       
     </main>
   <section id='more-recs'>
-    <Login />
+    <p>Hello there</p>
   </section>
 
   
