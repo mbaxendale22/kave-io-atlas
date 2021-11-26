@@ -2,11 +2,10 @@ import mongoose from 'mongoose'
 import Coffee from '../../models/coffee_model.js'
 import Roaster from '../../models/roaster_model.js'
 import data from './data.js'
-import { dbURI } from '../../config/env.js'
 
 const addData = async () => {
   try {
-    await mongoose.connect(dbURI)
+    await mongoose.connect(process.env.DB_URI)
     console.log('connection open')
 
     const [ sm ] = await Roaster.find({ name: 'Square Mile' })
