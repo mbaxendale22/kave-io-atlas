@@ -1,28 +1,35 @@
-import React, { useState } from 'react'
-import { dummyData } from './DummyData'
+import React, { useState, } from 'react'
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa'
-import { motion } from 'framer-motion'
-import Price from './coffeeInfo/Price.js'
+// import { motion } from 'framer-motion'
 import Description from './coffeeInfo/Description.js'
 import Production from './coffeeInfo/Production.js'
-import Profile from './coffeeInfo/Profile'
+import Profile from './coffeeInfo/Profile.js'
+import { useQuery } from 'react-query'
+import axios from 'axios'
+
 
 const Slider = () => {
+  
+
+  const { data, isLoading, isError } = useQuery('coffee', async () => await axios.get('/api/coffee'))
 
   const [ current, setCurrent ] = useState(0)
 
-  const next = () => setCurrent(current === dummyData.length -1 ? 0 : current + 1)
-  const previous = () => setCurrent(current === 0 ? dummyData.length -1 : current - 1)
+  const next = () => setCurrent(current === data.data.length -1 ? 0 : current + 1)
+  const previous = () => setCurrent(current === 0 ? data.data.length -1 : current - 1)
 
+  if (isLoading ) return <h2>loading...</h2>
+  if (isError) return <h2>Error has occured</h2>
 
   return (
     <>
-      {
-    dummyData.map((c, i) => {
+    {
+    // data.data &&
+    data.data?.map((c, i) => {
       return (
         <>
-          {/* <div className=  {i===current ?'bg-gray-700' : 'hidden'}><Price price={c.price} /></div> */}
           <div
+          key={data.data._id}
           style={{border: '1px solid black'}} 
           className= {i===current ?'col-start-4 col-end-7 row-start-1 row-end-7 mx-5' : 'hidden'}>
             <Description url={c.url} price={c.price} description={c.description} />

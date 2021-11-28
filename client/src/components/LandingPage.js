@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import Slider from './Slider.js'
-import Login from './Login.js'
-
+import axios from 'axios'
 
 const LandingPage = () => {
   const [  origin, setOrigin ] = useState(null)
   const [ process, setProcess ] = useState(null)
   const [ profile, setProfile ] = useState(null)
+  const [ filterData, setFilterData ] = useState(null)
 
   const handleToggle = e => {
     document.getElementById('more-recs').classList.remove('hide-page')
@@ -33,17 +33,19 @@ const LandingPage = () => {
       return
     }
   }
-
+  
   const secondStrike = e => {
     const processes = [ ...document.getElementById('process-wrapper').childNodes ]
     const [ checkForStrike ] = processes.filter(x => x.classList.contains('strikethrough')) 
     if (checkForStrike === undefined) {
       e.target.classList.add('strikethrough')
+      setProcess(e.target.dataset.id)
       return
     }
     else {
       checkForStrike.classList.remove('strikethrough')
       e.target.classList.add('strikethrough')
+      setProcess(e.target.dataset.id)
       return
     }
   }
@@ -52,15 +54,25 @@ const LandingPage = () => {
     const [ checkForStrike ] = profile.filter(x => x.classList.contains('strikethrough')) 
     if (checkForStrike === undefined) {
       e.target.classList.add('strikethrough')
+      setProfile(e.target.dataset.id)
       return
     }
     else {
       checkForStrike.classList.remove('strikethrough')
       e.target.classList.add('strikethrough')
+      setProfile(e.target.dataset.id)
       return
     }
   }
 
+  const handleSearch = async () => {
+   const { data } = await axios.post( '/api/coffee/test', {
+      origin,
+      process,
+      profile
+    })
+    setFilterData(data)
+  }
 
   const resetFilter = e => {
     const current = [... document.getElementsByClassName('strikethrough')]
@@ -71,8 +83,6 @@ const LandingPage = () => {
       setProcess(null)
       setProfile(null)
     }    
-
-
 
   return (
     <>
@@ -94,6 +104,8 @@ const LandingPage = () => {
             <span data-id='El Salvador' onClick={strike}>EL SALVADOR // </span> 
             <span data-id='Guatemala' onClick={strike}>GUATEMALA // </span> 
             <span data-id='Honduras' onClick={strike}>HONDURAS // </span> 
+            <span data-id='Myanmar' onClick={strike}>Myanmar // </span> 
+            <span data-id='Mexico' onClick={strike}>Mexico // </span> 
             <span data-id='Nicaragua' onClick={strike}>NICARAGUA // </span> 
           </div>  
         </section> 
@@ -116,13 +128,15 @@ const LandingPage = () => {
         </div>
         </section>
         <section className='w-full flex justify-evenly p-8' style={{border: '2px solid black'}}>
-        <div>Lets Go</div>
+        <div onClick={handleSearch}>Lets Go</div>
         <div onClick={resetFilter}>Reset</div>
         </section>
       </div>
       <div className='w-3/5 flex flex-col justify-evenly items-center mx-5 mt-2'>
         <section style={{border: '1px solid black'}} className='grid grid-cols-6 grid-rows-6 h-5/6 w-full'>
+        
         <Slider />
+        <Slider filterData={filterData} />
         </section>
         <button onClick={handleToggle}>explore</button>
       </div>

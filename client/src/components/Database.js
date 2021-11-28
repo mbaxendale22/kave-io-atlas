@@ -22,13 +22,13 @@ const [notes, setNotes] = useState({
   note3: ''
 })
 
-const [ roaster, setRoaster ] = useState({
-  name: '' ,
-  website: '' ,
-  region: '' ,
-  about: '' ,
-  coffees: [],
-})
+// const [ roaster, setRoaster ] = useState({
+//   name: '' ,
+//   website: '' ,
+//   region: '' ,
+//   about: '' ,
+//   coffees: [],
+// })
 
 const addBorder = () => {
   const inputs = [ ...document.querySelectorAll('input'), ...document.querySelectorAll('textarea') ]
