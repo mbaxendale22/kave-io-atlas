@@ -3,33 +3,22 @@ import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
 import Description from './coffeeInfo/Description.js';
 import Production from './coffeeInfo/Production.js';
 import Profile from './coffeeInfo/Profile.js';
+import { useQueryClient } from 'react-query';
 import { useQuery } from 'react-query';
 import { getCoffees } from '../helpers/api.js';
 
 const Slider = () => {
-  const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
-  const { data, isLoading, isError } = useQuery('coffee', getCoffees, {
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-    refetchOnWindowFocus: false,
-    retry: false,
-    staleTime: twentyFourHoursInMs,
-  });
-
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData('coffee');
   console.log(data);
-
   const [current, setCurrent] = useState(0);
   const next = () => setCurrent(current === data.length - 1 ? 0 : current + 1);
   const previous = () =>
     setCurrent(current === 0 ? data.length - 1 : current - 1);
 
-  if (isLoading) return <h2>loading...</h2>;
-  if (isError) return <h2>Error has occured</h2>;
-
   return (
     <>
-      {
-        // data.data &&
+      {data &&
         data.map((c, i) => {
           return (
             <>
@@ -110,8 +99,7 @@ const Slider = () => {
               </div>
             </>
           );
-        })
-      }
+        })}
     </>
   );
 };

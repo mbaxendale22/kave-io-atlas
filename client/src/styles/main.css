@@ -33,11 +33,12 @@
   .form-input {
     @apply border-2 border-gray-400 rounded-md text-sm w-2/3
   }
-}
+  .layout {
+     @apply border-2 border-black
+  }
+  .selected {
+  @apply bg-black text-white font-semibold
+  }
 
-.strikethrough {
-  color: red;
-  transform: scale(1.08);
-  /* font-style: italic; */
 }
 
