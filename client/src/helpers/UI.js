@@ -14,3 +14,8 @@ export const strike = (event, element, state) => {
     return;
   }
 };
+
+export const highlight = (e) =>
+  (e.target.style.cssText = 'transform: scale(1.08); color: red;');
+export const stopHighlight = (e) =>
+  (e.target.style.cssText = 'transform: scale(1);');

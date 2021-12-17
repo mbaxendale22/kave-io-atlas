@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
+import { highlight, stopHighlight } from '../helpers/UI';
 import Description from './coffeeInfo/Description.js';
 import Production from './coffeeInfo/Production.js';
 import Profile from './coffeeInfo/Profile.js';
@@ -24,10 +25,27 @@ const Slider = () => {
           return (
             <>
               <div
+                className={
+                  i === current
+                    ? ' col-start-1 col-end-3 flex flex-col justify-center items-center pt-3 font-Roboto text-sm sm:hidden text-gray-700'
+                    : 'hidden'
+                }
+              >
+                <p>{c.price}</p>
+                <a
+                  className="hover:bg-black px-2 hover:text-white"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={c.url}
+                >
+                  Buy From Roaster
+                </a>
+              </div>
+              <div
                 key={data._id}
                 className={
                   i === current
-                    ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 border-2 border-black'
+                    ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md'
                     : 'hidden'
                 }
               >
