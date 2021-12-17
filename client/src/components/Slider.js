@@ -17,17 +17,17 @@ const Slider = () => {
     setCurrent(current === 0 ? data.length - 1 : current - 1);
 
   return (
-    <>
+    // <div className="max-h-full">
+    <div className="grid grid-cols-4 grid-rows-4 gap-y-4 sm:grid-cols-6 sm:grid-rows-6 sm:layout h-full w-full sm:max-h-5/6 sm:max-w-5/6">
       {data &&
         data.map((c, i) => {
           return (
             <>
               <div
                 key={data._id}
-                style={{ border: '1px solid black' }}
                 className={
                   i === current
-                    ? 'col-start-4 col-end-7 row-start-1 row-end-7 mx-5'
+                    ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 border-2 border-black'
                     : 'hidden'
                 }
               >
@@ -42,10 +42,9 @@ const Slider = () => {
                 key={c._id}
                 className={
                   i === current
-                    ? 'opacity-100 transition duration-500 ease in relative col-start-1 col-end-4 row-start-3 row-end-6'
+                    ? 'opacity-100 transition duration-500 ease in relative col-start-1 col-end-3 row-start-2 row-end-4 sm:col-start-1 sm:col-end-4 sm:row-start-3 sm:row-end-6'
                     : 'hidden'
                 }
-                style={{ border: '5px solid black' }}
               >
                 {i === current && (
                   <img
@@ -72,7 +71,7 @@ const Slider = () => {
               <div
                 className={
                   i === current
-                    ? ' col-start-1 col-end-4 row-start-6 row-end-7 '
+                    ? ' col-start-3 col-end-5 row-start-3 sm:col-start-1 sm:col-end-4 sm:row-start-6 sm:row-end-7 '
                     : 'hidden'
                 }
               >
@@ -84,10 +83,9 @@ const Slider = () => {
               </div>
 
               <div
-                style={{ border: '1px solid black' }}
                 className={
                   i === current
-                    ? 'col-start-1 col-end-4 row-start-1 row-end-3'
+                    ? ' col-start-3 col-end-5 row-start-1 row-end-3  sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-3'
                     : 'hidden'
                 }
               >
@@ -100,7 +98,12 @@ const Slider = () => {
             </>
           );
         })}
-    </>
+    </div>
+    // {/* <>
+    //   <button onClick={handleToggle}>explore</button>
+    //   {' '}
+    // </> */}
+    // </div>
   );
 };
 

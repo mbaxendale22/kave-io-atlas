@@ -37,15 +37,16 @@ const Main = () => {
   if (isLoading) return <p>Loading data</p>;
   return (
     <main>
-      <LandingPage />
-      <FilterPanel />
-
-      <div className="flex h-screen flex-col justify-evenly items-center">
-        <section className="grid grid-cols-6 grid-rows-6 w-full">
-          <Slider />
-        </section>
-        <button onClick={handleToggle}>explore</button>
-      </div>
+      <section className="h-screen flex justify-center items-center ">
+        <LandingPage />
+      </section>
+      <section className="h-screen mx-2 sm:mx-8">
+        <FilterPanel />
+      </section>
+      <section className="flex h-screen sm:layout justify-center items-center">
+        <Slider />
+      </section>
+      <button onClick={handleToggle}>explore</button>
       <section id="more-recs">
         <p>Hello there</p>
       </section>

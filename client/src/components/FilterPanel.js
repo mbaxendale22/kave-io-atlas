@@ -24,14 +24,14 @@ const FilterPanel = () => {
     setProfile(null);
   };
   return (
-    <div className="h-screen flex flex-col justify-center gap-4 mx-4 sm:mx-24">
-      <section className="text-center mb-5">
+    <div className="max-h-full text-xs sm:text-base flex flex-col justify-center sm:gap-2">
+      <div className="text-center mb-5">
         {/* <h1 className="text-4xl mb-5 font-semibold">Kávé</h1> */}
         <h2>TO GET STARTED CHOOSE AT LEAST ONE FILTER BELOW</h2>
         <h2>COMBINE THE FILTERS FOR MORE SPECIFIC RESULTS</h2>
-      </section>
-      <section className="text-center border-black border-2 pt-2 rounded-sm">
-        <h2 className="text-xl font-semibold">REGION</h2>
+      </div>
+      <section className="text-center border-gray-600 border-2 pt-2 rounded-sm">
+        <h2 className=" text-base sm:text-xl font-semibold">REGION</h2>
         <div
           id="origin-wrapper"
           className="font-Roboto flex flex-wrap gap-4 justify-center w-full p-5 shadow-lg"
@@ -123,7 +123,7 @@ const FilterPanel = () => {
         </div>
       </section>
       <section className="text-center border-black border-2 rounded-sm">
-        <h2 className="text-xl font-semibold">PROCESS</h2>
+        <h2 className="text-base sm:text-xl font-semibold">PROCESS</h2>
         <div
           id="process-wrapper"
           className="font-Roboto p-5 flex justify-evenly flex-wrap w-full shadow-lg"
@@ -152,7 +152,7 @@ const FilterPanel = () => {
         </div>
       </section>
       <section className="text-center border-black border-2 pt-2 rounded-sm">
-        <h2 className="text-xl font-semibold">PROFILE</h2>
+        <h2 className="text-base sm:text-xl font-semibold">PROFILE</h2>
         <div
           id="profile-wrapper"
           className="font-Roboto p-5 flex justify-evenly flex-wrap w-full"
@@ -180,7 +180,7 @@ const FilterPanel = () => {
           </div>
         </div>
       </section>
-      <section className="w-full flex justify-evenly border-black border-2 p-8 rounded-sm">
+      <section className="w-full flex justify-evenly border-blue-500 border-2 p-8 rounded-sm">
         <div
           className=" px-4 py-2 rounded-sm hover:bg-black hover:text-white hover:font-semibold"
           onClick={handleSearch}
