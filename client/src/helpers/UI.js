@@ -1,18 +1,19 @@
-export const strike = (event, element, state) => {
+export const strike = (event, element, state, func) => {
   const origins = [...document.getElementById(element).childNodes];
   const [checkForStrike] = origins.filter((x) =>
     x.classList.contains('selected')
   );
   if (checkForStrike === undefined) {
     event.target.classList.add('selected');
-    state(event.target.dataset.id);
-    return;
   } else {
     checkForStrike.classList.remove('selected');
     event.target.classList.add('selected');
-    state(event.target.dataset.id);
-    return;
   }
+  const newFilterData = {
+    ...state,
+    [event.target.dataset.for]: event.target.dataset.id,
+  };
+  func(newFilterData);
 };
 
 export const highlight = (e) =>

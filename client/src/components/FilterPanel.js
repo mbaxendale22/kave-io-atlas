@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useQuery } from 'react-query';
 import { strike } from '../helpers/UI';
-const FilterPanel = () => {
-  const [origin, setOrigin] = useState(null);
-  const [process, setProcess] = useState(null);
-  const [profile, setProfile] = useState(null);
+import { testRoute } from '../helpers/api';
+const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
+  const { data } = useQuery('coffeeInitial', () => testRoute(filterData));
+  console.log(data);
 
-  const handleSearch = async () => {
-    // const { data } = await axios.post('/api/coffee/test', {
-    //   origin,
-    //   process,
-    //   profile,
-    // });
-    // setFilterData(data);
+  const handleSearch = () => {
+    setShowSlider(true);
   };
 
   const resetFilter = (e) => {
@@ -19,106 +15,139 @@ const FilterPanel = () => {
     for (const x of current) {
       x.classList.remove('selected');
     }
-    setOrigin(null);
-    setProcess(null);
-    setProfile(null);
+    setShowSlider(false);
   };
   return (
     <div className="max-h-full text-xs sm:text-base font-Roboto flex flex-col justify-center gap-2">
       <div className="text-center mb-5">
-        {/* <h1 className="text-4xl mb-5 font-semibold">Kávé</h1> */}
         <h2>TO GET STARTED CHOOSE AT LEAST ONE FILTER BELOW</h2>
         <h2>COMBINE THE FILTERS FOR MORE SPECIFIC RESULTS</h2>
       </div>
       <section className="text-center border-gray-600 border-2 pt-2 rounded-sm">
         <h2 className=" text-lg font-Roboto sm:text-xl font-semibold">
-          REGION
+          ORIGIN
         </h2>
         <div
           id="origin-wrapper"
           className="font-Roboto flex flex-wrap gap-4 justify-center w-full p-5 shadow-lg"
         >
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Boliva"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             BOLIVA
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Brazil"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             BRAZIL
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Colombia"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             COLOMBIA
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Costa Rica"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             COSTA RICA
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Ecuador"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             ECUADOR
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Ethiopia"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             ETHIOPIA
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="El Salvador"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             EL SALVADOR
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Guatemala"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             GUATEMALA
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Honduras"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             HONDURAS
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Myanmar"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             MYANMAR
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Mexico"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             MEXICO
           </div>
           <div
+            data-for="region"
             className="transform hover:scale-110 px-2"
             data-id="Nicaragua"
-            onClick={(event) => strike(event, 'origin-wrapper', setOrigin)}
+            onClick={(event) =>
+              strike(event, 'origin-wrapper', filterData, setFilterData)
+            }
           >
             NICARAGUA
           </div>
@@ -131,23 +160,32 @@ const FilterPanel = () => {
           className="font-Roboto p-5 flex justify-evenly flex-wrap w-full shadow-lg"
         >
           <div
+            data-for="process"
             className="transform hover:scale-110 px-2"
             data-id="Washed"
-            onClick={(event) => strike(event, 'process-wrapper', setProcess)}
+            onClick={(event) =>
+              strike(event, 'process-wrapper', filterData, setFilterData)
+            }
           >
             WASHED{' '}
           </div>
           <div
+            data-for="process"
             className="transform hover:scale-110 px-2"
             data-id="Honey"
-            onClick={(event) => strike(event, 'process-wrapper', setProcess)}
+            onClick={(event) =>
+              strike(event, 'process-wrapper', filterData, setFilterData)
+            }
           >
             HONEY{' '}
           </div>
           <div
+            data-for="process"
             className="transform hover:scale-110 px-2"
             data-id="Natural"
-            onClick={(event) => strike(event, 'process-wrapper', setProcess)}
+            onClick={(event) =>
+              strike(event, 'process-wrapper', filterData, setFilterData)
+            }
           >
             NATURAL{' '}
           </div>
@@ -160,23 +198,32 @@ const FilterPanel = () => {
           className="font-Roboto p-5 flex justify-evenly flex-wrap w-full"
         >
           <div
+            data-for="profile"
             className="transform hover:scale-110 px-2"
             data-id="Filter"
-            onClick={(event) => strike(event, 'profile-wrapper', setProfile)}
+            onClick={(event) =>
+              strike(event, 'profile-wrapper', filterData, setFilterData)
+            }
           >
             FILTER{' '}
           </div>
           <div
+            data-for="profile"
             className="transform hover:scale-110 px-2"
             data-id="Espresso"
-            onClick={(event) => strike(event, 'profile-wrapper', setProfile)}
+            onClick={(event) =>
+              strike(event, 'profile-wrapper', filterData, setFilterData)
+            }
           >
             ESPRESSO{' '}
           </div>
           <div
+            data-for="profile"
             className="transform hover:scale-110 px-2"
             data-id="Omni"
-            onClick={(event) => strike(event, 'profile-wrapper', setProfile)}
+            onClick={(event) =>
+              strike(event, 'profile-wrapper', filterData, setFilterData)
+            }
           >
             OMNI{' '}
           </div>

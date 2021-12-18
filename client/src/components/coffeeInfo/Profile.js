@@ -13,7 +13,7 @@ const Profile = ({ process, profile, notes }) => {
         <h2>NOTES</h2>
         <div className="flex flex-col items-center sm:flex-row sm:justify-around mt-1 w-full">
           {notes.length ? (
-            notes.map((note) => <p>{note.toUpperCase()}</p>)
+            notes.map((note) => <p key={note}>{note.toUpperCase()}</p>)
           ) : (
             <p>No Notes Provided By Roaster</p>
           )}

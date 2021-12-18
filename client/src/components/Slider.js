@@ -10,7 +10,7 @@ import { getCoffees } from '../helpers/api.js';
 
 const Slider = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData('coffee');
+  const data = queryClient.getQueryData('coffeeInitial');
   console.log(data);
   const [current, setCurrent] = useState(0);
   const next = () => setCurrent(current === data.length - 1 ? 0 : current + 1);
@@ -25,6 +25,7 @@ const Slider = () => {
           return (
             <>
               <div
+                key={data._id}
                 className={
                   i === current
                     ? ' col-start-1 col-end-3 flex flex-col justify-center items-center pt-3 font-Roboto text-sm sm:hidden text-gray-700'
@@ -42,7 +43,6 @@ const Slider = () => {
                 </a>
               </div>
               <div
-                key={data._id}
                 className={
                   i === current
                     ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md'

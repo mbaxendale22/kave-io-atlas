@@ -7,8 +7,15 @@ import LandingPage from './LandingPage.js';
 import axios from 'axios';
 
 const Main = () => {
-  const [filterData, setFilterData] = useState([]);
-  const filteredData = [];
+  const [showSlider, setShowSlider] = useState(false);
+  const [filterData, setFilterData] = useState({
+    region: '',
+    process: '',
+    profile: '',
+  });
+
+  console.log(filterData);
+  console.log(showSlider);
 
   const initialData = new Set();
   const generateRandomIndexes = () => {
@@ -19,10 +26,10 @@ const Main = () => {
 
   generateRandomIndexes();
 
-  const { data, isLoading, isError } = useQuery('coffee', getCoffees, {
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-  });
+  // const { data, isLoading, isError } = useQuery('coffee', getCoffees, {
+  //   refetchOnMount: false,
+  //   refetchOnWindowFocus: false,
+  // });
 
   const handleToggle = (e) => {
     document.getElementById('more-recs').classList.remove('hide-page');
@@ -34,23 +41,34 @@ const Main = () => {
     });
   };
 
-  if (isLoading) return <p>Loading data</p>;
   return (
-    <main>
-      <section className="h-screen flex justify-center items-center ">
-        <LandingPage />
-      </section>
-      <section className="h-screen mx-2 sm:mx-8">
-        <FilterPanel />
-      </section>
-      <section className="flex h-screen sm:layout justify-center items-center">
-        <Slider />
-      </section>
-      <button onClick={handleToggle}>explore</button>
-      <section id="more-recs">
-        <p>Hello there</p>
-      </section>
-    </main>
+    <>
+      <main>
+        <section className="h-screen flex justify-center items-center ">
+          <LandingPage />
+        </section>
+        <section className="h-screen mx-2 sm:mx-8">
+          <FilterPanel
+            setShowSlider={setShowSlider}
+            setFilterData={setFilterData}
+            filterData={filterData}
+          />
+        </section>
+        <section
+          className={
+            showSlider
+              ? 'flex h-screen sm:layout justify-center items-center'
+              : 'hidden'
+          }
+        >
+          <Slider />
+        </section>
+        <button onClick={handleToggle}>explore</button>
+        <section id="more-recs">
+          <p>Hello there</p>
+        </section>
+      </main>
+    </>
   );
 };
 
