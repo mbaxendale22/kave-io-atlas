@@ -3,10 +3,12 @@ import { useQuery } from 'react-query';
 import { strike } from '../helpers/UI';
 import { testRoute } from '../helpers/api';
 const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
-  const { data } = useQuery('coffeeInitial', () => testRoute(filterData));
-  console.log(data);
-
   const handleSearch = () => {
+    window.scroll({
+      top: 500,
+      left: 0,
+      behavior: 'smooth',
+    });
     setShowSlider(true);
   };
 
@@ -32,7 +34,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
           className="font-Roboto flex flex-wrap gap-4 justify-center w-full p-5 shadow-lg"
         >
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Boliva"
             onClick={(event) =>
@@ -42,7 +44,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             BOLIVA
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Brazil"
             onClick={(event) =>
@@ -52,7 +54,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             BRAZIL
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Colombia"
             onClick={(event) =>
@@ -62,7 +64,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             COLOMBIA
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Costa Rica"
             onClick={(event) =>
@@ -72,7 +74,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             COSTA RICA
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Ecuador"
             onClick={(event) =>
@@ -82,7 +84,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             ECUADOR
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Ethiopia"
             onClick={(event) =>
@@ -92,7 +94,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             ETHIOPIA
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="El Salvador"
             onClick={(event) =>
@@ -102,7 +104,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             EL SALVADOR
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Guatemala"
             onClick={(event) =>
@@ -112,7 +114,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             GUATEMALA
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Honduras"
             onClick={(event) =>
@@ -122,7 +124,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             HONDURAS
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Myanmar"
             onClick={(event) =>
@@ -132,7 +134,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             MYANMAR
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Mexico"
             onClick={(event) =>
@@ -142,7 +144,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
             MEXICO
           </div>
           <div
-            data-for="region"
+            data-for="origin"
             className="transform hover:scale-110 px-2"
             data-id="Nicaragua"
             onClick={(event) =>

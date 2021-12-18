@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
-import { highlight, stopHighlight } from '../helpers/UI';
 import Description from './coffeeInfo/Description.js';
 import Production from './coffeeInfo/Production.js';
 import Profile from './coffeeInfo/Profile.js';
-import { useQueryClient } from 'react-query';
 import { useQuery } from 'react-query';
-import { getCoffees } from '../helpers/api.js';
-
-const Slider = () => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData('coffeeInitial');
+import { testRoute } from '../helpers/api';
+const Slider = ({ filterData }) => {
+  const { data } = useQuery('coffeeInitial', () => testRoute(filterData));
   console.log(data);
   const [current, setCurrent] = useState(0);
   const next = () => setCurrent(current === data.length - 1 ? 0 : current + 1);

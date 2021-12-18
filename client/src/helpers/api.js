@@ -6,9 +6,9 @@ export const getCoffees = async () => {
   return data;
 };
 export const testRoute = async (params) => {
-  const { region, process, profile } = params;
+  const { origin, process, profile } = params;
   const { data } = await axios.get(
-    `/api/coffee/test?region=${region}&process=${process}&profile=${profile}`
+    `/api/coffee/test?origin=${origin}&process=${process}&profile=${profile}`
   );
   return data;
 };

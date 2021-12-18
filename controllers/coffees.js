@@ -14,14 +14,9 @@ export const getCoffees = async (req, res) => {
 };
 
 export const testRoute = async (req, res) => {
-  console.log(req.query);
-
   try {
-    const allCoffees = await Coffee.find({ origin: 'Myanmar' }).populate(
-      'roaster'
-    );
+    const allCoffees = await Coffee.find({ ...req.query }).populate('roaster');
     res.status(200).json(allCoffees);
-    console.log(allCoffees);
   } catch (err) {
     res.status(404).json({ message: 'error fetching all coffees' });
     console.log(err);

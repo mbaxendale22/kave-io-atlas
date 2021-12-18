@@ -9,7 +9,7 @@ import axios from 'axios';
 const Main = () => {
   const [showSlider, setShowSlider] = useState(false);
   const [filterData, setFilterData] = useState({
-    region: '',
+    origin: '',
     process: '',
     profile: '',
   });
@@ -54,15 +54,11 @@ const Main = () => {
             filterData={filterData}
           />
         </section>
-        <section
-          className={
-            showSlider
-              ? 'flex h-screen sm:layout justify-center items-center'
-              : 'hidden'
-          }
-        >
-          <Slider />
-        </section>
+        {showSlider && (
+          <section className="flex h-screen sm:layout justify-center items-center">
+            <Slider filterData={filterData} />
+          </section>
+        )}
         <button onClick={handleToggle}>explore</button>
         <section id="more-recs">
           <p>Hello there</p>
