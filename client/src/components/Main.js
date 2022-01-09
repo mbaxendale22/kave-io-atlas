@@ -7,16 +7,6 @@ import LandingPage from './LandingPage.js';
 import axios from 'axios';
 
 const Main = () => {
-  const [showSlider, setShowSlider] = useState(false);
-  const [filterData, setFilterData] = useState({
-    origin: '',
-    process: '',
-    profile: '',
-  });
-
-  console.log(filterData);
-  console.log(showSlider);
-
   const initialData = new Set();
   const generateRandomIndexes = () => {
     while (initialData.size < 5) {
@@ -48,17 +38,13 @@ const Main = () => {
           <LandingPage />
         </section>
         <section className="h-screen mx-2 sm:mx-8">
-          <FilterPanel
-            setShowSlider={setShowSlider}
-            setFilterData={setFilterData}
-            filterData={filterData}
-          />
+          <FilterPanel />
         </section>
-        {showSlider && (
-          <section className="flex h-screen sm:layout justify-center items-center">
-            <Slider filterData={filterData} />
+        {/* {showSlider && (
+          <section className="flex h-[90%] sm:layout justify-center items-center">
+            <Slider />
           </section>
-        )}
+        )} */}
         <button onClick={handleToggle}>explore</button>
         <section id="more-recs">
           <p>Hello there</p>

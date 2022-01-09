@@ -1,15 +1,18 @@
-import React from 'react';
-import { useQuery } from 'react-query';
+import React, { useState } from 'react';
 import { strike } from '../helpers/UI';
 import { testRoute } from '../helpers/api';
-const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
+import { useHistory } from 'react-router-dom';
+
+const FilterPanel = () => {
+  const history = useHistory();
+  const [filterData, setFilterData] = useState({
+    origin: '',
+    process: '',
+    profile: '',
+  });
+
   const handleSearch = () => {
-    window.scroll({
-      top: 500,
-      left: 0,
-      behavior: 'smooth',
-    });
-    setShowSlider(true);
+    history.push({ pathname: '/slider', state: filterData });
   };
 
   const resetFilter = (e) => {
@@ -17,7 +20,7 @@ const FilterPanel = ({ setShowSlider, filterData, setFilterData }) => {
     for (const x of current) {
       x.classList.remove('selected');
     }
-    setShowSlider(false);
+    // setShowSlider(false);
   };
   return (
     <div className="max-h-full text-xs sm:text-base font-Roboto flex flex-col justify-center gap-2">
