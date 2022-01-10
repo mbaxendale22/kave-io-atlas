@@ -5,7 +5,7 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col h-3/4 justify-center items-center gap-12">
       <p className="text-light text-8xl font-Roboto">KAVE.IO</p>
-      <div className="flex text-light text-lg">
+      <div className="flex text-light text-lg font-Montserrat">
         <p>
           <span class="text-contrast">Find</span> Coffees You Love
         </p>

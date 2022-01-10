@@ -40,7 +40,7 @@ const Main = () => {
           <Nav />
           <section className="flex flex-col w-screen h-5/6 justify-center items-center bg-main ">
             <LandingPage />
-            <div className="flex flex-col justify-center items-center mt-16 mb-12 text-xl text-contrast gap-4">
+            <div className="flex flex-col justify-center items-center font-Roboto mt-16 mb-12 text-xl text-contrast gap-4">
               <p>Quick Search</p>
               <div
                 onClick={handleToggle}

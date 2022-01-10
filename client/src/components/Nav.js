@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
   const isAuthenticated = false;
   return (
-    <div className="w-screen py-8 text-lg text-contrast flex justify-end gap-12 mb-4">
+    <div className="w-screen py-8 text-lg text-contrast flex justify-end gap-12 mb-4 font-Montserrat">
       <Link to="/">
         <div>HOME</div>
       </Link>
