@@ -1,19 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { authConfirmed } from '../helpers/auth';
 
 const Nav = () => {
-  const isAuthenticated = false;
+  const history = useHistory();
+
+  const handleSignOut = () => {
+    window.localStorage.removeItem('token'); // remove token from local storage
+    history.push('/');
+  };
+
   return (
     <div className="w-screen py-8 text-lg text-contrast flex justify-end gap-12 mb-4 font-Montserrat">
       <Link to="/">
         <div>HOME</div>
       </Link>
-      {isAuthenticated ? (
-        <div className="mr-16">My Coffee Journal</div>
+      {authConfirmed() ? (
+        <>
+          <div>COFFEE JOURNAL</div>
+          <div className="mr-16" onClick={handleSignOut}>
+            SIGN OUT
+          </div>
+        </>
       ) : (
         <>
-          <div>LOGIN</div>
-          <Link to="/Register">
+          <Link to="/login">
+            <div>LOGIN</div>
+          </Link>
+          <Link to="/register">
             <div className="mr-16">SIGN UP</div>
           </Link>
         </>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from './components/Main.js';
-import Login from './components/Login.js';
 import Slider from './components/Slider.js';
 import Register from './components/auth/Register.js';
+import Login from './components/auth/Login';
 
 const App = () => {
   return (

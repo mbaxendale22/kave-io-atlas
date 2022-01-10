@@ -1,5 +1,8 @@
 import User from '../models/user_model.js';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const register = async (req, res) => {
   console.log(req.body);
@@ -13,12 +16,16 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
+    console.log('hitting the correct endpoint');
     // * find the user in the db
-    const userToLogin = await User.findOne({ username: req.body.username });
+    const userToLogin = await User.findOne({ email: req.body.email });
+    console.log(userToLogin);
     // * check if the user exists, and that the passwords match, if either are false throw an error
     if (!userToLogin || !userToLogin.validatePassword(req.body.password)) {
-      throw new Error();
+      // throw new Error();
+      console.log('this is the error');
     }
+
     // * generate a token for the user
     // * we need to pass "sign" the "sub" which is the id of the user
     // * 2nd we pass the secret it needs to encode the token
