@@ -24,11 +24,11 @@ const FilterPanel = () => {
   };
   return (
     <div className="max-h-full text-xs sm:text-base font-Roboto flex flex-col justify-center gap-2">
-      <div className="text-center mb-5">
-        <h2>TO GET STARTED CHOOSE AT LEAST ONE FILTER BELOW</h2>
+      <div className="text-center text-2xl text-light mb-5">
+        <h2>CHOOSE AT LEAST ONE FILTER BELOW</h2>
         <h2>COMBINE THE FILTERS FOR MORE SPECIFIC RESULTS</h2>
       </div>
-      <section className="text-center border-gray-600 border-2 pt-2 rounded-sm">
+      <section className="text-center border-gray-600 border-2 pt-2 rounded-lg bg-light text-contrast shadow-md">
         <h2 className=" text-lg font-Roboto sm:text-xl font-semibold">
           ORIGIN
         </h2>
@@ -158,7 +158,7 @@ const FilterPanel = () => {
           </div>
         </div>
       </section>
-      <section className="text-center border-black border-2 rounded-sm">
+      <section className="text-center border-black border-2 rounded-lg bg-light text-contrast shadow-md">
         <h2 className="text-lg sm:text-xl font-semibold">PROCESS</h2>
         <div
           id="process-wrapper"
@@ -196,7 +196,7 @@ const FilterPanel = () => {
           </div>
         </div>
       </section>
-      <section className="text-center border-black border-2 pt-2 rounded-sm">
+      <section className="text-center border-black border-2 pt-2 rounded-lg bg-light text-contrast shadow-md">
         <h2 className="text-lg sm:text-xl font-semibold">PROFILE</h2>
         <div
           id="profile-wrapper"
@@ -234,7 +234,7 @@ const FilterPanel = () => {
           </div>
         </div>
       </section>
-      <section className="w-full flex justify-evenly border-black border-2 p-8 rounded-sm">
+      <section className="w-full flex justify-evenly border-black border-2 p-8 rounded-lg bg-light text-contrast shadow-md">
         <div
           className=" px-4 py-2 rounded-sm hover:bg-black hover:text-white hover:font-semibold"
           onClick={handleSearch}

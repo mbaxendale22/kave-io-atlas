@@ -5,6 +5,8 @@ import { getCoffees } from '../helpers/api.js';
 import FilterPanel from './FilterPanel.js';
 import LandingPage from './LandingPage.js';
 import axios from 'axios';
+import Nav from './Nav.js';
+import { BsChevronDoubleDown } from 'react-icons/bs';
 
 const Main = () => {
   const initialData = new Set();
@@ -22,8 +24,8 @@ const Main = () => {
   // });
 
   const handleToggle = (e) => {
-    document.getElementById('more-recs').classList.remove('hide-page');
-    document.getElementById('more-recs').classList.add('show-page');
+    document.getElementById('filter-panel').classList.remove('hide-page');
+    document.getElementById('filter-panel').classList.add('show-page');
     window.scroll({
       top: 950,
       left: 0,
@@ -34,20 +36,23 @@ const Main = () => {
   return (
     <>
       <main>
-        <section className="h-screen flex justify-center items-center ">
-          <LandingPage />
-        </section>
-        <section className="h-screen mx-2 sm:mx-8">
-          <FilterPanel />
-        </section>
-        {/* {showSlider && (
-          <section className="flex h-[90%] sm:layout justify-center items-center">
-            <Slider />
+        <div className="h-screen border bg-main">
+          <Nav />
+          <section className="flex flex-col w-screen h-5/6 justify-center items-center bg-main ">
+            <LandingPage />
+            <div className="flex flex-col justify-center items-center mt-16 mb-12 text-xl text-contrast gap-4">
+              <p>Quick Search</p>
+              <div
+                onClick={handleToggle}
+                className="transform hover:scale-125 cursor-pointer"
+              >
+                {<BsChevronDoubleDown />}
+              </div>
+            </div>
           </section>
-        )} */}
-        <button onClick={handleToggle}>explore</button>
-        <section id="more-recs">
-          <p>Hello there</p>
+        </div>
+        <section id="filter-panel" className="hide-page bg-main">
+          <FilterPanel />
         </section>
       </main>
     </>
