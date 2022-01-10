@@ -13,7 +13,9 @@ const Nav = () => {
       ) : (
         <>
           <div>LOGIN</div>
-          <div className="mr-16">SIGN UP</div>
+          <Link to="/Register">
+            <div className="mr-16">SIGN UP</div>
+          </Link>
         </>
       )}
     </div>

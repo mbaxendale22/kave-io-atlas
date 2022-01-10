@@ -28,7 +28,7 @@ const FilterPanel = () => {
         <h2>CHOOSE AT LEAST ONE FILTER BELOW</h2>
         <h2>COMBINE THE FILTERS FOR MORE SPECIFIC RESULTS</h2>
       </div>
-      <section className="text-center border-gray-600 border-2 pt-2 rounded-lg bg-light text-contrast shadow-md">
+      <section className="text-center border-gray-600 border-2 pt-2 info-card">
         <h2 className=" text-lg font-Roboto sm:text-xl font-semibold">
           ORIGIN
         </h2>

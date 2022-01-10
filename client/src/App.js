@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from './components/Main.js';
 import Login from './components/Login.js';
 import Slider from './components/Slider.js';
+import Register from './components/auth/Register.js';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
         <Route exact path="/slider" component={Slider} />
       </Switch>
     </BrowserRouter>

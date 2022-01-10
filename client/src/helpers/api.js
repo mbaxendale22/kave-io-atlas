@@ -12,3 +12,7 @@ export const testRoute = async (params) => {
   );
   return data;
 };
+
+export const postRegister = async (register) => {
+  await axios.post('/api/register/', register);
+};
