@@ -19,8 +19,8 @@ const Slider = () => {
 
   return (
     <>
-      <Nav />
-      <section className="h-screen sm:layout">
+      <section className="h-screen bg-main sm:layout">
+        <Nav />
         <div className="grid grid-cols-4 grid-rows-4 gap-y-4 sm:grid-cols-6 sm:grid-rows-6 sm:layout h-5/6 w-full sm:max-h-5/6 sm:max-w-5/6">
           {data &&
             data.map((c, i) => {
@@ -47,7 +47,7 @@ const Slider = () => {
                   <div
                     className={
                       i === current
-                        ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md'
+                        ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md info-card'
                         : 'hidden'
                     }
                   >

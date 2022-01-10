@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -12,33 +12,35 @@
 
 @layer components {
   .more-info {
-    @apply flex justify-center items-center bg-blue-300 absolute rounded-2xl h-4 w-24 left-5 top-0 text-xs
+    @apply flex justify-center items-center bg-blue-300 absolute rounded-2xl h-4 w-24 left-5 top-0 text-xs;
   }
 
   .btn {
-    @apply rounded-md py-2 px-3 uppercase text-xs font-bold cursor-pointer shadow-md
+    @apply rounded-md py-2 px-3 uppercase text-xs font-bold cursor-pointer shadow-md;
   }
   .show-page {
-    @apply h-screen flex justify-center items-center
+    @apply h-screen flex justify-center items-center;
   }
   .hide-page {
-    @apply h-screen hidden
+    @apply h-screen hidden;
   }
   .flex-r-c {
-    @apply flex justify-center items-center
+    @apply flex justify-center items-center;
   }
   .flex-c-c {
-    @apply flex flex-col justify-center items-center
+    @apply flex flex-col justify-center items-center;
   }
   .form-input {
-    @apply border-2 border-gray-400 rounded-md text-sm w-2/3
+    @apply border-2 border-gray-400 rounded-md text-sm w-2/3;
   }
   .layout {
-     @apply border-2 border-black
+    @apply border-2 border-black;
   }
   .selected {
-  @apply bg-black text-white font-semibold
+    @apply bg-black text-white font-semibold;
   }
 
+  .info-card {
+    @apply rounded-lg bg-light text-contrast shadow-md;
+  }
 }
-
