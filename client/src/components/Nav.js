@@ -5,6 +5,7 @@ import { authConfirmed } from '../helpers/auth';
 const Nav = () => {
   const history = useHistory();
 
+
   const handleSignOut = () => {
     window.localStorage.removeItem('token'); // remove token from local storage
     history.push('/');
@@ -17,7 +18,7 @@ const Nav = () => {
       </Link>
       {authConfirmed() ? (
         <>
-          <Link to='/journal'><div className='cursor-pointer'>COFFEE JOURNAL</div></Link>
+          <Link to= 'journal'><div className='cursor-pointer'>COFFEE JOURNAL</div></Link>
           <div className="mr-16 cursor-pointer" onClick={handleSignOut}>
             SIGN OUT
           </div>

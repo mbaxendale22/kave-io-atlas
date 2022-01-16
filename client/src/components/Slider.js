@@ -19,8 +19,6 @@ const Slider = () => {
   const previous = () =>
     setCurrent(current === 0 ? data.length - 1 : current - 1);
 
-    console.log(data[0].origin)
-
   if (isLoading) return <p>Loading...</p>;
 
   return (
@@ -121,12 +119,12 @@ const Slider = () => {
                       key={c._id}
                       className={
                         i === current
-                          ? 'opacity-100 info-card m-2 sm:border-2 sm:border-black sm:shadowm-md col-start-2 col-end-2 row-start-1 row-end-1 sm:col-start-3 sm:col-end-3 sm:row-start-4 sm:row-end-5'
+                          ? 'opacity-100 info-card m-2 sm:m-0 sm:border-2 sm:border-black sm:shadowm-md col-start-2 col-end-2 row-start-1 row-end-1 sm:col-start-3 sm:col-end-3 sm:row-start-4 sm:row-end-5'
                           : 'hidden'
                       }
                     >
                       {i === current && ( 
-                        <Favourite />
+                        <Favourite user ={state.user} coffee={c._id} roaster={c.roaster._id} />
                       )}
                     </div>
 

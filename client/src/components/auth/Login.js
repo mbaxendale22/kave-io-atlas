@@ -12,8 +12,8 @@ const Login = () => {
 
   const history = useHistory();
 
-  const { mutate, isError } = useMutation(postLogin, {
-    onSuccess: () => history.push('/'),
+  const { mutate, isError, data } = useMutation(postLogin, {
+    onSuccess: (data) => history.push({pathname: '/', state: data})
   });
 
   const handleSubmit = async (e) => {

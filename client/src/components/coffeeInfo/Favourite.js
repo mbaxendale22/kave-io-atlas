@@ -1,6 +1,28 @@
 import React, { useState } from 'react';
+import { useMutation } from 'react-query';
+import { addToJournal } from '../../helpers/api';
 
-const Favourite = () => {
+const Favourite = ({ user, coffee, roaster }) => {
+
+  
+  const [ coffeeData, setCoffeeData ] = useState({
+    user,
+    coffee,
+    roaster,
+    brew: 'How did you brew this coffee?',
+    recipe: 'What was your brew recipe',
+    score: 77,
+    notes: 'Any thoughts?'
+  }
+  )
+  const { mutate } = useMutation(addToJournal)
+
+  const handleClick = () => {
+    mutate(coffeeData)
+    setUpdateJournal(true)
+  }
+
+
   const [updateJournal, setUpdateJournal] = useState(false);
 
   return (
@@ -9,7 +31,7 @@ const Favourite = () => {
         <p className='hover:bg-black hover:text-white cursor-pointer px-2' onClick={() => setUpdateJournal(false)} >In your Coffee Journal</p>
       ) : (
         <>
-          <p className='hover:bg-black hover:text-white cursor-pointer px-2' onClick={() => setUpdateJournal(true)}  >Add to Coffee Journal</p>
+          <p className='hover:bg-black hover:text-white cursor-pointer px-2' onClick={handleClick}  >Add to Coffee Journal</p>
         </>
       )}
     </div>

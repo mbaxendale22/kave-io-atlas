@@ -22,6 +22,7 @@ export const getUserJournal = async (req, res) => {
           model: 'Roaster',
         },
       });
+    console.log(allJournals)
     res.status(200).json(allJournals);
   } catch (err) {
     res.status(404).json({ message: 'error fetching all coffees' });
@@ -29,7 +30,7 @@ export const getUserJournal = async (req, res) => {
   }
 };
 
-export const createJournalEntry = async (req, res) => {
+export const addToJournal = async (req, res) => {
   try {
     // create new entry object from the request
     const newJournalEntry = { ...req.body };

@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import Slider from './Slider.js';
-import { getCoffees } from '../helpers/api.js';
+import { getUserJournal } from '../helpers/api.js';
 import FilterPanel from './FilterPanel.js';
 import LandingPage from './LandingPage.js';
-import axios from 'axios';
 import Nav from './Nav.js';
 import { BsChevronDoubleDown } from 'react-icons/bs';
 
 const Main = () => {
-  const initialData = new Set();
-  const generateRandomIndexes = () => {
-    while (initialData.size < 5) {
-      initialData.add(Math.floor(Math.random() * 126));
-    }
-  };
 
-  generateRandomIndexes();
+  const location = useLocation()
+
+  const { data } = useQuery('userData', getUserJournal)
+
+
 
   // const { data, isLoading, isError } = useQuery('coffee', getCoffees, {
   //   refetchOnMount: false,
   //   refetchOnWindowFocus: false,
   // });
+
 
   const handleToggle = (e) => {
     document.getElementById('filter-panel').classList.remove('hide-page');
@@ -52,7 +50,7 @@ const Main = () => {
           </section>
         </div>
         <section id="filter-panel" className="hide-page bg-main">
-          <FilterPanel />
+          <FilterPanel user={location.state} />
         </section>
       </main>
     </>

@@ -36,8 +36,9 @@ export const login = async (req, res) => {
     // * return the token in the response along with a message
     return res
       .status(200)
-      .json({ message: `Welcome back ${userToLogin.username}`, token });
+      .json({ userToLogin, token });
   } catch (err) {
     return res.status(404).json({ message: 'Unauthorized' });
   }
 };
+

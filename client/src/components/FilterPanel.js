@@ -3,12 +3,13 @@ import { strike } from '../helpers/UI';
 import { testRoute } from '../helpers/api';
 import { useHistory } from 'react-router-dom';
 
-const FilterPanel = () => {
+const FilterPanel = ({ user }) => {
   const history = useHistory();
   const [filterData, setFilterData] = useState({
     origin: '',
     process: '',
     profile: '',
+    user
   });
 
   const handleSearch = () => {

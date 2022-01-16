@@ -16,10 +16,21 @@ export const testRoute = async (params) => {
 
 export const postLogin = async (login) => {
   const { data } = await axios.post('/api/login', login);
-  console.log(data);
   setItemToLocalStorage(data.token);
+ return data.userToLogin._id
 };
 
 export const postRegister = async (register) => {
   await axios.post('/api/register/', register);
 };
+
+export const getUserJournal = async (user) => {
+  const { sub } = getPayload()
+  const { data } = await axios.get(`/api/journal?user=${sub}`);
+  return data
+}
+
+export const addToJournal = async (coffeeData) => {
+  console.log(coffeeData)
+  await axios.post('api/journal/', coffeeData)
+}
