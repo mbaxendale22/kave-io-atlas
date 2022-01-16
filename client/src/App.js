@@ -4,7 +4,7 @@ import Main from './components/Main.js';
 import Slider from './components/Slider.js';
 import Register from './components/auth/Register.js';
 import Login from './components/auth/Login';
-import CoffeeJournal from './components/CoffeeJournal.js';
+import CoffeeJournal from './components/coffeeJournal/CoffeeJournal.js';
 
 const App = () => {
   return (
