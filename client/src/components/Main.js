@@ -36,12 +36,12 @@ const Main = () => {
   return (
     <>
       <main>
-        <div className="h-screen border bg-main">
+        <div className="h-screen bg-main">
           <Nav />
           <section className="flex flex-col w-screen h-5/6 justify-center items-center bg-main ">
             <LandingPage />
             <div className="flex flex-col justify-center items-center font-Roboto mt-16 mb-12 text-xl text-contrast gap-4">
-              <p>Quick Search</p>
+              <p>Get Started</p>
               <div
                 onClick={handleToggle}
                 className="transform hover:scale-125 cursor-pointer"

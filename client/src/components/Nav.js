@@ -11,14 +11,14 @@ const Nav = () => {
   };
 
   return (
-    <div className="w-screen py-8 text-lg text-contrast flex justify-end gap-12 mb-4 font-Montserrat">
+    <div className="w-screen py-8 text-lg text-contrast flex justify-end mb-4 gap-12 font-Montserrat">
       <Link to="/">
         <div>HOME</div>
       </Link>
       {authConfirmed() ? (
         <>
-          <div>COFFEE JOURNAL</div>
-          <div className="mr-16" onClick={handleSignOut}>
+          <Link to='/journal'><div className='cursor-pointer'>COFFEE JOURNAL</div></Link>
+          <div className="mr-16 cursor-pointer" onClick={handleSignOut}>
             SIGN OUT
           </div>
         </>

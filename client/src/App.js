@@ -4,6 +4,7 @@ import Main from './components/Main.js';
 import Slider from './components/Slider.js';
 import Register from './components/auth/Register.js';
 import Login from './components/auth/Login';
+import CoffeeJournal from './components/CoffeeJournal.js';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/slider" component={Slider} />
+        <Route exact path="/journal" component={CoffeeJournal} />
       </Switch>
     </BrowserRouter>
   );
