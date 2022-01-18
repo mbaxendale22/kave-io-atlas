@@ -5,9 +5,8 @@ import User from '../models/user_model.js';
 
 export const getUserJournal = async (req, res) => {
   console.log('request reached controller');
-  const { user } = req.query;
   try {
-    const allJournals = await User.find({ _id: user })
+    const allJournals = await User.find({ _id: req.currentUser })
       .populate({
         path: 'journal',
         populate: {
@@ -22,10 +21,30 @@ export const getUserJournal = async (req, res) => {
           model: 'Roaster',
         },
       });
-    console.log(allJournals)
     res.status(200).json(allJournals);
   } catch (err) {
     res.status(404).json({ message: 'error fetching all coffees' });
+    console.log(err);
+  }
+};
+
+export const getUserJournalEntry = async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  try {
+    const journalEntry = await Journal.find({ _id: id })
+      .populate({
+        path: 'coffee',
+        model: 'Coffee'
+      })
+      .populate({
+        path: 'roaster',
+        model: 'Roaster'
+      });
+
+    res.status(200).json(journalEntry);
+  } catch (err) {
+    res.status(404).json({ message: 'error fetching journal entry' });
     console.log(err);
   }
 };

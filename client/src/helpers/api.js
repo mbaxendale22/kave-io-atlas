@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setItemToLocalStorage } from './auth';
+import { setItemToLocalStorage, getTokenFromLocalStorage } from './auth';
 import { getPayload } from './auth';
 
 export const getCoffees = async () => {
@@ -17,20 +17,32 @@ export const testRoute = async (params) => {
 export const postLogin = async (login) => {
   const { data } = await axios.post('/api/login', login);
   setItemToLocalStorage(data.token);
- return data.userToLogin._id
+  return data.userToLogin._id;
 };
 
 export const postRegister = async (register) => {
   await axios.post('/api/register/', register);
 };
 
-export const getUserJournal = async (user) => {
-  const { sub } = getPayload()
-  const { data } = await axios.get(`/api/journal?user=${sub}`);
-  return data
-}
+export const getUserJournal = async () => {
+  const token = getTokenFromLocalStorage();
+  const { data } = await axios.get('/api/journal', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+};
+export const getUserJournalEntry = async (id) => {
+  const token = getTokenFromLocalStorage();
+  const { data } = await axios.get(`/api/journal/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+};
 
 export const addToJournal = async (coffeeData) => {
-  console.log(coffeeData)
-  await axios.post('api/journal/', coffeeData)
-}
+  await axios.post('api/journal/', coffeeData);
+};

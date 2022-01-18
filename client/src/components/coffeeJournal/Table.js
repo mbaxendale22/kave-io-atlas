@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import {Link} from 'react-router-dom' 
 
 const Table = ({ journal }) => {
   const [pageOne, setPageOne] = useState([]);
@@ -27,32 +28,15 @@ const Table = ({ journal }) => {
       }
     }
 
-  }, [journal, pageOne])
+  }, [journal])
 
-  console.log(pageOne)
 
   return (
     <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
       <div class="py-8">
         <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
-          <h2 class="text-2xl leading-tight">Your Coffees</h2>
+          <h2 class="text-2xl leading-tight font-Montserrat text-contrast uppercase">Your Coffees</h2>
           <div class="text-end">
-            <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
-              <div class=" relative ">
-                <input
-                  type="text"
-                  id='"form-subscribe-Filter'
-                  class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  placeholder="name"
-                />
-              </div>
-              <button
-                class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
-                type="submit"
-              >
-                Filter
-              </button>
-            </form>
           </div>
         </div>
         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -62,37 +46,37 @@ const Table = ({ journal }) => {
                 <tr>
                   <th
                     scope="col"
-                    class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                    class="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
                   >
                     Coffee
                   </th>
                   <th
                     scope="col"
-                    class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                    class="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
                   >
                     Origin
                   </th>
                   <th
                     scope="col"
-                    class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                    class="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
                   >
                     Roaster
                   </th>
                   <th
                     scope="col"
-                    class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                    class="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
                   >
                     Score
                   </th>
                   <th
                     scope="col"
-                    class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                    class="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
                   ></th>
                 </tr>
               </thead>
               <tbody>
                 {whichPage().map((entry) => (
-                  <tr>
+                  <tr className='font-Roboto'>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                       <div class="flex items-center">
                         <p class="text-gray-900 whitespace-no-wrap">
@@ -116,9 +100,9 @@ const Table = ({ journal }) => {
                       </p>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                      <p href="#" class="text-indigo-600 hover:text-indigo-900">
+                      <Link to={{pathname: `/journal/${entry._id}`}} class="text-indigo-600 hover:text-indigo-900">
                         Edit
-                      </p>
+                      </Link>
                     </td>
                   </tr>
                 ))}
@@ -143,28 +127,28 @@ const Table = ({ journal }) => {
                 </button>
                 <button
                   type="button"
-                  class="w-full px-4 py-2 border-t border-b text-base text-indigo-500 bg-white hover:bg-gray-100 "
+                  class="w-full px-4 py-2 border-t border-b text-base text-indigo-500 bg-white hover:bg-gray-100 font-Montserrat "
                   onClick={() => setPageNumber(1)}
                   >
                   1
                 </button>
                 <button
                   type="button"
-                  class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100"
+                  class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100 font-Montserrat"
                   onClick={() => setPageNumber(2)}
                   >
                   2
                 </button>
                 <button
                   type="button"
-                  class="w-full px-4 py-2 border-t border-b text-base text-gray-600 bg-white hover:bg-gray-100"
+                  class="w-full px-4 py-2 border-t border-b text-base text-gray-600 bg-white hover:bg-gray-100 font-Montserrat"
                     onClick={() => setPageNumber(3)}
                   >
                   3
                 </button>
                 <button
                   type="button"
-                  class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100"
+                  class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100 font-Montserrat"
                   onClick={() => setPageNumber(4)}
                 >
                   4

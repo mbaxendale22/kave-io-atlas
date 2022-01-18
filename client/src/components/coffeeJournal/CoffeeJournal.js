@@ -27,15 +27,6 @@ const CoffeeJournal = () => {
     <Nav />
     <section className="flex w-screen h-5/6 justify-center items-center bg-main ">
     <Table journal={journal} />
-      {/* <div>
-        {
-          journal.map(entry => {
-            return <Card key={entry.coffee._id} coffee={entry.coffee.title} origin={entry.coffee.origin} roaster={entry.roaster.name} brew={entry.brew} score={entry.score} />
-          })
-
-
-        }
-      </div> */}
     </section> 
   </div>
   )
