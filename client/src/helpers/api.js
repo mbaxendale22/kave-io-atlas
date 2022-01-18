@@ -33,9 +33,28 @@ export const getUserJournal = async () => {
   });
   return data;
 };
+
+//single journal entry
 export const getUserJournalEntry = async (id) => {
+  const pageOne = []
+  const pageTwo = []
+  const pageThree = []
+  const pageFour = []
   const token = getTokenFromLocalStorage();
   const { data } = await axios.get(`/api/journal/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const [entry] = data
+  return entry;
+};
+
+// update a single journal entry
+export const updateUserJournalEntry = async (id, updatedEntry) => {
+  updatedEntry.score = Number(updatedEntry.score)
+  const token = getTokenFromLocalStorage();
+  const { data } = await axios.put(`/api/journal/${id}`, updatedEntry, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -43,6 +62,21 @@ export const getUserJournalEntry = async (id) => {
   return data;
 };
 
+
+export const deleteUserJournalEntry = async (id) => {
+  const token = getTokenFromLocalStorage();
+  const { data } = await axios.delete(`/api/journal/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+};
+
+
+
+
+// add a coffee to the user's journal collection
 export const addToJournal = async (coffeeData) => {
   await axios.post('api/journal/', coffeeData);
 };

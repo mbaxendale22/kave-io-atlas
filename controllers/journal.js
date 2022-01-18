@@ -21,7 +21,8 @@ export const getUserJournal = async (req, res) => {
           model: 'Roaster',
         },
       });
-    res.status(200).json(allJournals);
+    const journal = allJournals[0].journal
+    res.status(200).json(journal);
   } catch (err) {
     res.status(404).json({ message: 'error fetching all coffees' });
     console.log(err);
@@ -35,11 +36,11 @@ export const getUserJournalEntry = async (req, res) => {
     const journalEntry = await Journal.find({ _id: id })
       .populate({
         path: 'coffee',
-        model: 'Coffee'
+        model: 'Coffee',
       })
       .populate({
         path: 'roaster',
-        model: 'Roaster'
+        model: 'Roaster',
       });
 
     res.status(200).json(journalEntry);
@@ -65,5 +66,27 @@ export const addToJournal = async (req, res) => {
   } catch (err) {
     res.status(404).json({ message: 'error posting new journal entry' });
     console.log(err);
+  }
+};
+
+export const updateJournalEntry = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateEntry = await Journal.findByIdAndUpdate(id, req.body);
+    if (!updateEntry) throw new Error();
+    return res.status(200).json({ message: 'journal entry has been updated' });
+  } catch (err) {
+    return res.status(200).json(err);
+  }
+};
+
+export const deleteJournalEntry = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const removeEntry = await Journal.findByIdAndDelete(id);
+    if (!removeEntry) throw new Error();
+    return res.status(200).json({ message: 'entry has been deleted!' });
+  } catch (err) {
+    res.status(404).json({ message: err.message });
   }
 };

@@ -9,7 +9,7 @@ const Favourite = ({ user, coffee, roaster }) => {
     user,
     coffee,
     roaster,
-    brew: 'How did you brew this coffee?',
+    brew: 'Brew Method?',
     recipe: 'What was your brew recipe',
     score: 77,
     notes: 'Any thoughts?'

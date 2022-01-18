@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {Link} from 'react-router-dom' 
 
 const Table = ({ journal }) => {
-  const [pageOne, setPageOne] = useState([]);
+  const [pageOne, setPageOne] = useState([ ...journal ]);
   const [pageTwo, setPageTwo] = useState([]);
   const [pageThree, setPageThree] = useState([]);
   const [pageFour, setPageFour] = useState([]);
@@ -21,15 +21,7 @@ const Table = ({ journal }) => {
     }
   };
 
-  useEffect(() => {
-    for (let i = 0; i < 10; i++) {
-      if (journal[i] !== undefined) {
-        pageOne.push(journal[i]);
-      }
-    }
-
-  }, [journal])
-
+  console.log(pageOne)
 
   return (
     <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
