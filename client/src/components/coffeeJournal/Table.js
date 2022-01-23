@@ -7,16 +7,10 @@ const Table = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [journalData, setJournalData] = useState(false);
 
-  // const { data, isLoading, isError } = useQuery(
-  //     ["userJournal"],
-  //     () => getUserJournal(pageNumber)
-  //   );
-
   useEffect(() => {
     const getData = async () => {
       const data = await getUserJournal(pageNumber);
       setJournalData(data);
-      console.log(data);
     };
     getData();
   }, [pageNumber]);

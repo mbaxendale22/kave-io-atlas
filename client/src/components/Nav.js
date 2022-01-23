@@ -19,7 +19,7 @@ const Nav = () => {
       </Link>
       {authConfirmed() ? (
         <>
-          <Link to="journal">
+          <Link to="/journal">
             <div className="cursor-pointer transform duration-200 ease-in hover:scale-125">
               COFFEE JOURNAL
             </div>

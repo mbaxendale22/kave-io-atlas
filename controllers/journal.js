@@ -1,35 +1,34 @@
-import Journal from '../models/journal_model.js';
-import Roaster from '../models/roaster_model.js';
-import Coffee from '../models/coffee_model.js';
-import User from '../models/user_model.js';
+import Journal from "../models/journal_model.js";
+import Roaster from "../models/roaster_model.js";
+import Coffee from "../models/coffee_model.js";
+import User from "../models/user_model.js";
 
 export const getUserJournal = async (req, res) => {
- 
-  const page = parseInt(req.query.page)
-  const limit = parseInt(req.query.limit)
-  const startIndex = (page - 1) * limit
-  const endIndex = page * limit
+  const page = parseInt(req.query.page);
+  const limit = parseInt(req.query.limit);
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
   try {
     const allJournals = await User.find({ _id: req.currentUser })
       .populate({
-        path: 'journal',
+        path: "journal",
         populate: {
-          path: 'coffee',
-          model: 'Coffee',
+          path: "coffee",
+          model: "Coffee",
         },
       })
       .populate({
-        path: 'journal',
+        path: "journal",
         populate: {
-          path: 'roaster',
-          model: 'Roaster',
+          path: "roaster",
+          model: "Roaster",
         },
       });
-    const journal = allJournals[0].journal
-    const pagedJournals = journal.slice(startIndex, endIndex)
+    const journal = allJournals[0].journal;
+    const pagedJournals = journal.slice(startIndex, endIndex);
     res.status(200).json(pagedJournals);
   } catch (err) {
-    res.status(404).json({ message: 'error fetching all coffees' });
+    res.status(404).json({ message: "error fetching all coffees" });
     console.log(err);
   }
 };
@@ -40,17 +39,17 @@ export const getUserJournalEntry = async (req, res) => {
   try {
     const journalEntry = await Journal.find({ _id: id })
       .populate({
-        path: 'coffee',
-        model: 'Coffee',
+        path: "coffee",
+        model: "Coffee",
       })
       .populate({
-        path: 'roaster',
-        model: 'Roaster',
+        path: "roaster",
+        model: "Roaster",
       });
 
     res.status(200).json(journalEntry);
   } catch (err) {
-    res.status(404).json({ message: 'error fetching journal entry' });
+    res.status(404).json({ message: "error fetching journal entry" });
     console.log(err);
   }
 };
@@ -69,7 +68,7 @@ export const addToJournal = async (req, res) => {
     await updatedUser.save({ validateModifiedOnly: true });
     res.status(200).json(newJournalEntry);
   } catch (err) {
-    res.status(404).json({ message: 'error posting new journal entry' });
+    res.status(404).json({ message: "error posting new journal entry" });
     console.log(err);
   }
 };
@@ -79,7 +78,7 @@ export const updateJournalEntry = async (req, res) => {
     const { id } = req.params;
     const updateEntry = await Journal.findByIdAndUpdate(id, req.body);
     if (!updateEntry) throw new Error();
-    return res.status(200).json({ message: 'journal entry has been updated' });
+    return res.status(200).json({ message: "journal entry has been updated" });
   } catch (err) {
     return res.status(200).json(err);
   }
@@ -90,7 +89,7 @@ export const deleteJournalEntry = async (req, res) => {
     const { id } = req.params;
     const removeEntry = await Journal.findByIdAndDelete(id);
     if (!removeEntry) throw new Error();
-    return res.status(200).json({ message: 'entry has been deleted!' });
+    return res.status(200).json({ message: "entry has been deleted!" });
   } catch (err) {
     res.status(404).json({ message: err.message });
   }

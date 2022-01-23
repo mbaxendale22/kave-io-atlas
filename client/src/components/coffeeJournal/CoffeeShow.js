@@ -17,41 +17,44 @@ const CoffeeShow = () => {
   const [modal, setModal] = useState(false);
   const { id } = useParams();
   const history = useHistory();
-  console.log(modal);
+  const [singleJournalData, setSingleJournalData] = useState(null);
 
-  const {
-    data: entry,
-    isLoading,
-    isError,
-  } = useQuery("currentEntry", () => getUserJournalEntry(id));
+  useState(() => {
+    const getData = async () => {
+      const data = await getUserJournalEntry(id);
+      setSingleJournalData(data);
+    };
+    getData();
+  }, [id]);
 
-  const [journalData, setJournalData] = useState(entry);
   const queryClient = useQueryClient();
 
   const handleChange = (e) => {
     let newJournalData = {};
     e.target.name === "score"
       ? (newJournalData = {
-          ...journalData,
+          ...singleJournalData,
           [e.target.name]: Number(e.target.value),
         })
-      : (newJournalData = { ...journalData, [e.target.name]: e.target.value });
-    setJournalData(newJournalData);
+      : (newJournalData = {
+          ...singleJournalData,
+          [e.target.name]: e.target.value,
+        });
+    setSingleJournalData(newJournalData);
   };
 
   const { mutate: updateEntry } = useMutation(
-    () => updateUserJournalEntry(entry._id, journalData),
+    () => updateUserJournalEntry(singleJournalData._id, singleJournalData),
     {
       onSuccess: () => {
-        queryClient.setQueryData(["currentEntry"], journalData);
+        queryClient.setQueryData(["currentEntry"], singleJournalData);
         setEditing(false);
       },
       onError: () => setError(true),
     }
   );
-  const { mutate: deleteEntry, isError: deleteError } = useMutation();
 
-  if (isLoading) return <p>Loading...</p>;
+  if (!singleJournalData) return <p>Loading...</p>;
 
   return (
     <div className="h-screen bg-main relative">
@@ -60,15 +63,19 @@ const CoffeeShow = () => {
         <Modal
           question={"delete this coffee from your journal?"}
           setModal={setModal}
-          entry={entry._id}
+          entry={singleJournalData._id}
         />
       )}
       <section className="flex w-screen h-5/6 justify-center items-center bg-main ">
         {!editing ? (
-          <Card entry={entry} setEditing={setEditing} setModal={setModal} />
+          <Card
+            entry={singleJournalData}
+            setEditing={setEditing}
+            setModal={setModal}
+          />
         ) : (
           <EditEntry
-            entry={entry}
+            entry={singleJournalData}
             handleChange={handleChange}
             updateEntry={updateEntry}
             setEditing={setEditing}

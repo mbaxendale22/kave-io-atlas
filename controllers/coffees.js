@@ -1,26 +1,32 @@
-import Coffee from '../models/coffee_model.js';
-import Roaster from '../models/roaster_model.js';
+import Coffee from "../models/coffee_model.js";
+import Roaster from "../models/roaster_model.js";
 
 export const getCoffees = async (req, res) => {
-  console.log('request reached controller');
+  console.log("request reached controller");
   try {
-    const allCoffees = await Coffee.find().populate('roaster');
+    const allCoffees = await Coffee.find().populate("roaster");
     res.status(200).json(allCoffees);
   } catch (err) {
-    res.status(404).json({ message: 'error fetching all coffees' });
+    res.status(404).json({ message: "error fetching all coffees" });
     console.log(err);
   }
 };
 
 export const testRoute = async (req, res) => {
   try {
-   if (req.query.origin === '') {delete req.query.origin}
-   if (req.query.process === '') {delete req.query.process}
-   if (req.query.profile === '') {delete req.query.profile}
-    const allCoffees = await Coffee.find({ ...req.query }).populate('roaster');
+    if (req.query.origin === "") {
+      delete req.query.origin;
+    }
+    if (req.query.process === "") {
+      delete req.query.process;
+    }
+    if (req.query.profile === "") {
+      delete req.query.profile;
+    }
+    const allCoffees = await Coffee.find({ ...req.query }).populate("roaster");
     res.status(200).json(allCoffees);
   } catch (err) {
-    res.status(404).json({ message: 'error fetching all coffees' });
+    res.status(404).json({ message: "error fetching all coffees" });
     console.log(err);
   }
 };
