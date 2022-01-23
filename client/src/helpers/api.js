@@ -1,6 +1,8 @@
 import axios from "axios";
 import { setItemToLocalStorage, getTokenFromLocalStorage } from "./auth";
+import useQueryClient from 'react-query'
 import { getPayload } from "./auth";
+
 
 export const getCoffees = async () => {
   const { data } = await axios.get("/api/coffee");
@@ -24,13 +26,16 @@ export const postRegister = async (register) => {
   await axios.post("/api/register/", register);
 };
 
-export const getUserJournal = async () => {
+export const getUserJournal = async (page) => {
   const token = getTokenFromLocalStorage();
-  const { data } = await axios.get("/api/journal", {
+  console.log(page);
+  const limit = 5
+  const { data } = await axios.get(`/api/journal?page=${page}&limit=${limit}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
+  console.log(data);
   return data;
 };
 
@@ -62,6 +67,7 @@ export const updateUserJournalEntry = async (id, updatedEntry) => {
 };
 
 export const deleteUserJournalEntry = async (id) => {
+  
   const token = getTokenFromLocalStorage();
   const { data } = await axios.delete(`/api/journal/${id}`, {
     headers: {

@@ -14,6 +14,9 @@ export const getCoffees = async (req, res) => {
 
 export const testRoute = async (req, res) => {
   try {
+   if (req.query.origin === '') {delete req.query.origin}
+   if (req.query.process === '') {delete req.query.process}
+   if (req.query.profile === '') {delete req.query.profile}
     const allCoffees = await Coffee.find({ ...req.query }).populate('roaster');
     res.status(200).json(allCoffees);
   } catch (err) {

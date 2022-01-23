@@ -4,7 +4,11 @@ import Coffee from '../models/coffee_model.js';
 import User from '../models/user_model.js';
 
 export const getUserJournal = async (req, res) => {
-  console.log('request reached controller');
+ 
+  const page = parseInt(req.query.page)
+  const limit = parseInt(req.query.limit)
+  const startIndex = (page - 1) * limit
+  const endIndex = page * limit
   try {
     const allJournals = await User.find({ _id: req.currentUser })
       .populate({
@@ -22,7 +26,8 @@ export const getUserJournal = async (req, res) => {
         },
       });
     const journal = allJournals[0].journal
-    res.status(200).json(journal);
+    const pagedJournals = journal.slice(startIndex, endIndex)
+    res.status(200).json(pagedJournals);
   } catch (err) {
     res.status(404).json({ message: 'error fetching all coffees' });
     console.log(err);
