@@ -130,6 +130,16 @@ const FilterPanel = ({ user }) => {
           <div
             data-for="origin"
             className="transform hover:scale-110 px-2"
+            data-id="Kenya"
+            onClick={(event) =>
+              strike(event, "origin-wrapper", filterData, setFilterData)
+            }
+          >
+            KENYA
+          </div>
+          <div
+            data-for="origin"
+            className="transform hover:scale-110 px-2"
             data-id="Myanmar"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -156,6 +166,36 @@ const FilterPanel = ({ user }) => {
             }
           >
             NICARAGUA
+          </div>
+          <div
+            data-for="origin"
+            className="transform hover:scale-110 px-2"
+            data-id="Peru"
+            onClick={(event) =>
+              strike(event, "origin-wrapper", filterData, setFilterData)
+            }
+          >
+            PERU
+          </div>
+          <div
+            data-for="origin"
+            className="transform hover:scale-110 px-2"
+            data-id="Rwanda"
+            onClick={(event) =>
+              strike(event, "origin-wrapper", filterData, setFilterData)
+            }
+          >
+            RWANDA
+          </div>
+          <div
+            data-for="origin"
+            className="transform hover:scale-110 px-2"
+            data-id="Tanzania"
+            onClick={(event) =>
+              strike(event, "origin-wrapper", filterData, setFilterData)
+            }
+          >
+            TANZANIA
           </div>
         </div>
       </section>
