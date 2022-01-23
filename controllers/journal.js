@@ -57,7 +57,7 @@ export const addToJournal = async (req, res) => {
     //use mongoose to add to the collection
     const createdEntry = await Journal.create(newJournalEntry);
     // pull the user from the db
-    const [updatedUser] = await User.find({ _id: req.body.user });
+    const [updatedUser] = await User.find({ _id: req.currentUser });
     // add the _id of the newly created journal entry into the user's 'journals' array
     updatedUser.journal.push(createdEntry._id);
     //save

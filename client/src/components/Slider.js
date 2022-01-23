@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
-import Description from './coffeeInfo/Description.js';
-import Production from './coffeeInfo/Production.js';
-import Profile from './coffeeInfo/Profile.js';
-import { useQuery } from 'react-query';
-import { testRoute } from '../helpers/api';
-import { useLocation } from 'react-router-dom';
-import Nav from './Nav.js';
-import Favourite from './coffeeInfo/Favourite.js';
-import Origin from './coffeeInfo/Origin.js';
+import React, { useState } from "react";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import Description from "./coffeeInfo/Description.js";
+import Production from "./coffeeInfo/Production.js";
+import Profile from "./coffeeInfo/Profile.js";
+import { useQuery } from "react-query";
+import { testRoute } from "../helpers/api";
+import { useLocation } from "react-router-dom";
+import Nav from "./Nav.js";
+import Favourite from "./coffeeInfo/Favourite.js";
+import Origin from "./coffeeInfo/Origin.js";
 const Slider = () => {
   const { state } = useLocation();
 
-  const { data, isLoading } = useQuery('coffeeInitial', () => testRoute(state));
+  const { data, isLoading } = useQuery("coffeeInitial", () => testRoute(state));
 
   const [current, setCurrent] = useState(0);
   const next = () => setCurrent(current === data.length - 1 ? 0 : current + 1);
@@ -35,8 +35,8 @@ const Slider = () => {
                       key={data._id}
                       className={
                         i === current
-                          ? ' col-start-1 col-end-1 flex flex-col justify-center items-center pt-3 m-2 info-card font-Roboto text-sm sm:hidden text-gray-700'
-                          : 'hidden'
+                          ? " col-start-1 col-end-1 flex flex-col justify-center items-center pt-3 m-2 info-card font-Roboto text-sm sm:hidden text-gray-700"
+                          : "hidden"
                       }
                     >
                       <p>{c.price}</p>
@@ -50,13 +50,13 @@ const Slider = () => {
                       </a>
                     </div>
 
-{/* Description */}
+                    {/* Description */}
 
                     <div
                       className={
                         i === current
-                          ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md info-card'
-                          : 'hidden'
+                          ? " col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md info-card"
+                          : "hidden"
                       }
                     >
                       <Description
@@ -66,14 +66,14 @@ const Slider = () => {
                       />
                     </div>
 
-{/* Image */}
+                    {/* Image */}
 
                     <div
                       key={c._id}
                       className={
                         i === current
-                          ? 'opacity-100 transition duration-500 ease in relative col-start-1 col-end-3 row-start-2 row-end-4 sm:col-start-1 sm:col-end-3 sm:row-start-3 sm:row-end-6 sm:mx-5'
-                          : 'hidden'
+                          ? "opacity-100 transition duration-500 ease in relative col-start-1 col-end-3 row-start-2 row-end-4 sm:col-start-1 sm:col-end-3 sm:row-start-3 sm:row-end-6 sm:mx-5"
+                          : "hidden"
                       }
                     >
                       {i === current && (
@@ -98,43 +98,45 @@ const Slider = () => {
                       />
                     </div>
 
-{/* Origin */}
+                    {/* Origin */}
 
                     <div
                       key={c._id}
                       className={
                         i === current
-                          ? 'opacity-100 hidden sm:flex info-card sm:border-2 sm:border-black sm:shadowm-md sm:col-start-3 sm:col-end-3 sm:row-start-3 sm:row-end-4'
-                          : 'hidden'
+                          ? "opacity-100 hidden sm:flex info-card sm:border-2 sm:border-black sm:shadowm-md sm:col-start-3 sm:col-end-3 sm:row-start-3 sm:row-end-4"
+                          : "hidden"
                       }
                     >
-                      {i === current && ( 
-                        <Origin origin={c.origin} />
-                      )}
+                      {i === current && <Origin origin={c.origin} />}
                     </div>
 
-{/* Add to Journal */}
+                    {/* Add to Journal */}
 
                     <div
                       key={c._id}
                       className={
                         i === current
-                          ? 'opacity-100 info-card m-2 sm:m-0 sm:border-2 sm:border-black sm:shadowm-md col-start-2 col-end-2 row-start-1 row-end-1 sm:col-start-3 sm:col-end-3 sm:row-start-4 sm:row-end-5'
-                          : 'hidden'
+                          ? "opacity-100 info-card m-2 sm:m-0 sm:border-2 sm:border-black sm:shadowm-md col-start-2 col-end-2 row-start-1 row-end-1 sm:col-start-3 sm:col-end-3 sm:row-start-4 sm:row-end-5"
+                          : "hidden"
                       }
                     >
-                      {i === current && ( 
-                        <Favourite user ={state.user} coffee={c._id} roaster={c.roaster._id} />
+                      {i === current && (
+                        <Favourite
+                          user={state.user}
+                          coffee={c._id}
+                          roaster={c.roaster._id}
+                        />
                       )}
                     </div>
 
-{/* Roasted by and produced by card */}
+                    {/* Roasted by and produced by card */}
 
                     <div
                       className={
                         i === current
-                          ? ' col-start-3 col-end-5 row-start-3 sm:col-start-1 sm:col-end-4 sm:row-start-6 sm:row-end-7 '
-                          : 'hidden'
+                          ? " col-start-3 col-end-5 row-start-3 sm:col-start-1 sm:col-end-4 sm:row-start-6 sm:row-end-7 "
+                          : "hidden"
                       }
                     >
                       <Production
@@ -144,13 +146,13 @@ const Slider = () => {
                       />
                     </div>
 
-{/* Profile card */}
+                    {/* Profile card */}
 
                     <div
                       className={
                         i === current
-                          ? ' col-start-3 col-end-5 row-start-1 row-end-3 sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-3'
-                          : 'hidden'
+                          ? " col-start-3 col-end-5 row-start-1 row-end-3 sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-3"
+                          : "hidden"
                       }
                     >
                       <Profile
@@ -170,7 +172,6 @@ const Slider = () => {
         )}
       </section>
     </>
-  
   );
 };
 

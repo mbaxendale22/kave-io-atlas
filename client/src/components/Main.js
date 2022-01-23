@@ -1,33 +1,29 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { getUserJournal } from '../helpers/api.js';
-import FilterPanel from './FilterPanel.js';
-import LandingPage from './LandingPage.js';
-import Nav from './Nav.js';
-import { BsChevronDoubleDown } from 'react-icons/bs';
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getUserJournal } from "../helpers/api.js";
+import FilterPanel from "./FilterPanel.js";
+import LandingPage from "./LandingPage.js";
+import Nav from "./Nav.js";
+import { BsChevronDoubleDown } from "react-icons/bs";
 
 const Main = () => {
+  const location = useLocation();
 
-  const location = useLocation()
-
-  const { data } = useQuery('userData', getUserJournal)
-
-
+  const { data } = useQuery("userData", getUserJournal);
 
   // const { data, isLoading, isError } = useQuery('coffee', getCoffees, {
   //   refetchOnMount: false,
   //   refetchOnWindowFocus: false,
   // });
 
-
   const handleToggle = (e) => {
-    document.getElementById('filter-panel').classList.remove('hide-page');
-    document.getElementById('filter-panel').classList.add('show-page');
+    document.getElementById("filter-panel").classList.remove("hide-page");
+    document.getElementById("filter-panel").classList.add("show-page");
     window.scroll({
       top: 950,
       left: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 

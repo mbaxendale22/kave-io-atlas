@@ -1,13 +1,13 @@
 export const strike = (event, element, state, func) => {
   const origins = [...document.getElementById(element).childNodes];
   const [checkForStrike] = origins.filter((x) =>
-    x.classList.contains('selected')
+    x.classList.contains("selected")
   );
   if (checkForStrike === undefined) {
-    event.target.classList.add('selected');
+    event.target.classList.add("selected");
   } else {
-    checkForStrike.classList.remove('selected');
-    event.target.classList.add('selected');
+    checkForStrike.classList.remove("selected");
+    event.target.classList.add("selected");
   }
   const newFilterData = {
     ...state,
@@ -17,6 +17,6 @@ export const strike = (event, element, state, func) => {
 };
 
 export const highlight = (e) =>
-  (e.target.style.cssText = 'transform: scale(1.08); color: red;');
+  (e.target.style.cssText = "transform: scale(1.08); color: red;");
 export const stopHighlight = (e) =>
-  (e.target.style.cssText = 'transform: scale(1);');
+  (e.target.style.cssText = "transform: scale(1);");

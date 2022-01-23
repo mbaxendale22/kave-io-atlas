@@ -1,9 +1,9 @@
-import axios from 'axios';
-import { setItemToLocalStorage, getTokenFromLocalStorage } from './auth';
-import { getPayload } from './auth';
+import axios from "axios";
+import { setItemToLocalStorage, getTokenFromLocalStorage } from "./auth";
+import { getPayload } from "./auth";
 
 export const getCoffees = async () => {
-  const { data } = await axios.get('/api/coffee');
+  const { data } = await axios.get("/api/coffee");
   return data;
 };
 export const testRoute = async (params) => {
@@ -15,18 +15,18 @@ export const testRoute = async (params) => {
 };
 
 export const postLogin = async (login) => {
-  const { data } = await axios.post('/api/login', login);
+  const { data } = await axios.post("/api/login", login);
   setItemToLocalStorage(data.token);
   return data.userToLogin._id;
 };
 
 export const postRegister = async (register) => {
-  await axios.post('/api/register/', register);
+  await axios.post("/api/register/", register);
 };
 
 export const getUserJournal = async () => {
   const token = getTokenFromLocalStorage();
-  const { data } = await axios.get('/api/journal', {
+  const { data } = await axios.get("/api/journal", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -36,23 +36,22 @@ export const getUserJournal = async () => {
 
 //single journal entry
 export const getUserJournalEntry = async (id) => {
-  const pageOne = []
-  const pageTwo = []
-  const pageThree = []
-  const pageFour = []
+  const pageOne = [];
+  const pageTwo = [];
+  const pageThree = [];
+  const pageFour = [];
   const token = getTokenFromLocalStorage();
   const { data } = await axios.get(`/api/journal/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-  const [entry] = data
+  const [entry] = data;
   return entry;
 };
 
 // update a single journal entry
 export const updateUserJournalEntry = async (id, updatedEntry) => {
-  updatedEntry.score = Number(updatedEntry.score)
   const token = getTokenFromLocalStorage();
   const { data } = await axios.put(`/api/journal/${id}`, updatedEntry, {
     headers: {
@@ -61,7 +60,6 @@ export const updateUserJournalEntry = async (id, updatedEntry) => {
   });
   return data;
 };
-
 
 export const deleteUserJournalEntry = async (id) => {
   const token = getTokenFromLocalStorage();
@@ -73,10 +71,12 @@ export const deleteUserJournalEntry = async (id) => {
   return data;
 };
 
-
-
-
-// add a coffee to the user's journal collection
 export const addToJournal = async (coffeeData) => {
-  await axios.post('api/journal/', coffeeData);
+  const token = getTokenFromLocalStorage();
+  const { data } = await axios.post("/api/journal/", coffeeData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
 };

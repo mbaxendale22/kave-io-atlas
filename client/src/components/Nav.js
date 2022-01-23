@@ -1,25 +1,33 @@
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { authConfirmed } from '../helpers/auth';
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import { authConfirmed } from "../helpers/auth";
 
 const Nav = () => {
   const history = useHistory();
 
-
   const handleSignOut = () => {
-    window.localStorage.removeItem('token'); // remove token from local storage
-    history.push('/');
+    window.localStorage.removeItem("token"); // remove token from local storage
+    history.push("/");
   };
 
   return (
     <div className="w-screen py-8 text-lg text-contrast flex justify-end mb-4 gap-12 font-Montserrat">
       <Link to="/">
-        <div className='transform duration-200 ease-in hover:scale-125'>HOME</div>
+        <div className="transform duration-200 ease-in hover:scale-125">
+          HOME
+        </div>
       </Link>
       {authConfirmed() ? (
         <>
-          <Link to= 'journal'><div className='cursor-pointer transform duration-200 ease-in hover:scale-125'>COFFEE JOURNAL</div></Link>
-          <div className="mr-16 cursor-pointer transform duration-200 ease-in hover:scale-125" onClick={handleSignOut}>
+          <Link to="journal">
+            <div className="cursor-pointer transform duration-200 ease-in hover:scale-125">
+              COFFEE JOURNAL
+            </div>
+          </Link>
+          <div
+            className="mr-16 cursor-pointer transform duration-200 ease-in hover:scale-125"
+            onClick={handleSignOut}
+          >
             SIGN OUT
           </div>
         </>
@@ -29,7 +37,9 @@ const Nav = () => {
             <div>LOGIN</div>
           </Link>
           <Link to="/register">
-            <div className="mr-16 transform duration-200 ease-in hover:scale-125">SIGN UP</div>
+            <div className="mr-16 transform duration-200 ease-in hover:scale-125">
+              SIGN UP
+            </div>
           </Link>
         </>
       )}

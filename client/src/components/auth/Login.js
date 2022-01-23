@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useMutation } from 'react-query';
-import Nav from '../../components/Nav';
-import { postLogin } from '../../helpers/api';
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useMutation } from "react-query";
+import Nav from "../../components/Nav";
+import { postLogin } from "../../helpers/api";
 
 const Login = () => {
   const [login, setLogin] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const history = useHistory();
 
   const { mutate, isError, data } = useMutation(postLogin, {
-    onSuccess: (data) => history.push({pathname: '/', state: data})
+    onSuccess: (data) => history.push({ pathname: "/", state: data }),
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     mutate(login);
-    const inputs = [...document.querySelectorAll('input')];
-    inputs.forEach((i) => (i.value = ''));
+    const inputs = [...document.querySelectorAll("input")];
+    inputs.forEach((i) => (i.value = ""));
   };
 
   const handleChange = (e) => {

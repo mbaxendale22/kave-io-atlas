@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Main from './components/Main.js';
-import Slider from './components/Slider.js';
-import Register from './components/auth/Register.js';
-import Login from './components/auth/Login';
-import CoffeeJournal from './components/coffeeJournal/CoffeeJournal.js';
-import CoffeeShow from './components/coffeeJournal/CoffeeShow.js';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Main from "./components/Main.js";
+import Slider from "./components/Slider.js";
+import Register from "./components/auth/Register.js";
+import Login from "./components/auth/Login";
+import CoffeeJournal from "./components/coffeeJournal/CoffeeJournal.js";
+import CoffeeShow from "./components/coffeeJournal/CoffeeShow.js";
 
 const App = () => {
   return (

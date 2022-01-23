@@ -1,5 +1,5 @@
-import React from 'react';
-import { highlight, stopHighlight } from '../../helpers/UI';
+import React from "react";
+import { highlight, stopHighlight } from "../../helpers/UI";
 
 const Description = ({ description, price, url }) => {
   return (

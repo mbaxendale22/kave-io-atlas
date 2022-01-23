@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { strike } from '../helpers/UI';
-import { testRoute } from '../helpers/api';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { strike } from "../helpers/UI";
+// import { testRoute } from "../helpers/api";
+import { useHistory } from "react-router-dom";
 
 const FilterPanel = ({ user }) => {
   const history = useHistory();
   const [filterData, setFilterData] = useState({
-    origin: '',
-    process: '',
-    profile: '',
-    user
+    origin: "",
+    process: "",
+    profile: "",
+    user,
   });
 
   const handleSearch = () => {
-    history.push({ pathname: '/slider', state: filterData });
+    history.push({ pathname: "/slider", state: filterData });
   };
 
-  const resetFilter = (e) => {
-    const current = [...document.getElementsByClassName('selected')];
+  const resetFilter = () => {
+    const current = [...document.getElementsByClassName("selected")];
     for (const x of current) {
-      x.classList.remove('selected');
+      x.classList.remove("selected");
     }
     // setShowSlider(false);
   };
@@ -42,7 +42,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Boliva"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             BOLIVA
@@ -52,7 +52,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Brazil"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             BRAZIL
@@ -62,7 +62,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Colombia"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             COLOMBIA
@@ -72,7 +72,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Costa Rica"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             COSTA RICA
@@ -82,7 +82,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Ecuador"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             ECUADOR
@@ -92,7 +92,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Ethiopia"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             ETHIOPIA
@@ -102,7 +102,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="El Salvador"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             EL SALVADOR
@@ -112,7 +112,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Guatemala"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             GUATEMALA
@@ -122,7 +122,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Honduras"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             HONDURAS
@@ -132,7 +132,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Myanmar"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             MYANMAR
@@ -142,7 +142,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Mexico"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             MEXICO
@@ -152,7 +152,7 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Nicaragua"
             onClick={(event) =>
-              strike(event, 'origin-wrapper', filterData, setFilterData)
+              strike(event, "origin-wrapper", filterData, setFilterData)
             }
           >
             NICARAGUA
@@ -170,30 +170,30 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Washed"
             onClick={(event) =>
-              strike(event, 'process-wrapper', filterData, setFilterData)
+              strike(event, "process-wrapper", filterData, setFilterData)
             }
           >
-            WASHED{' '}
+            WASHED{" "}
           </div>
           <div
             data-for="process"
             className="transform hover:scale-110 px-2"
             data-id="Honey"
             onClick={(event) =>
-              strike(event, 'process-wrapper', filterData, setFilterData)
+              strike(event, "process-wrapper", filterData, setFilterData)
             }
           >
-            HONEY{' '}
+            HONEY{" "}
           </div>
           <div
             data-for="process"
             className="transform hover:scale-110 px-2"
             data-id="Natural"
             onClick={(event) =>
-              strike(event, 'process-wrapper', filterData, setFilterData)
+              strike(event, "process-wrapper", filterData, setFilterData)
             }
           >
-            NATURAL{' '}
+            NATURAL{" "}
           </div>
         </div>
       </section>
@@ -208,30 +208,30 @@ const FilterPanel = ({ user }) => {
             className="transform hover:scale-110 px-2"
             data-id="Filter"
             onClick={(event) =>
-              strike(event, 'profile-wrapper', filterData, setFilterData)
+              strike(event, "profile-wrapper", filterData, setFilterData)
             }
           >
-            FILTER{' '}
+            FILTER{" "}
           </div>
           <div
             data-for="profile"
             className="transform hover:scale-110 px-2"
             data-id="Espresso"
             onClick={(event) =>
-              strike(event, 'profile-wrapper', filterData, setFilterData)
+              strike(event, "profile-wrapper", filterData, setFilterData)
             }
           >
-            ESPRESSO{' '}
+            ESPRESSO{" "}
           </div>
           <div
             data-for="profile"
             className="transform hover:scale-110 px-2"
             data-id="Omni"
             onClick={(event) =>
-              strike(event, 'profile-wrapper', filterData, setFilterData)
+              strike(event, "profile-wrapper", filterData, setFilterData)
             }
           >
-            OMNI{' '}
+            OMNI{" "}
           </div>
         </div>
       </section>

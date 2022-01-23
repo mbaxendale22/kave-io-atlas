@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { useMutation } from 'react-query';
-import { Link, useHistory } from 'react-router-dom';
-import { postRegister } from '../../helpers/api';
-import Nav from '../Nav';
+import React, { useState } from "react";
+import { useMutation } from "react-query";
+import { Link, useHistory } from "react-router-dom";
+import { postRegister } from "../../helpers/api";
+import Nav from "../Nav";
 
 const Register = () => {
   const history = useHistory();
 
   const [register, setRegister] = useState({
-    username: '',
-    email: '',
-    password: '',
-    passwordConfirmation: '',
+    username: "",
+    email: "",
+    password: "",
+    passwordConfirmation: "",
   });
 
   const { mutate, isError } = useMutation(postRegister, {
-    onSuccess: () => history.push('/login'),
+    onSuccess: () => history.push("/login"),
   });
 
   const handleSubmit = async (e) => {
