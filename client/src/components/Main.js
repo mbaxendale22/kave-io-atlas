@@ -12,11 +12,6 @@ const Main = () => {
 
   const { data } = useQuery("userData", getUserJournal);
 
-  // const { data, isLoading, isError } = useQuery('coffee', getCoffees, {
-  //   refetchOnMount: false,
-  //   refetchOnWindowFocus: false,
-  // });
-
   const handleToggle = (e) => {
     document.getElementById("filter-panel").classList.remove("hide-page");
     document.getElementById("filter-panel").classList.add("show-page");
@@ -30,11 +25,11 @@ const Main = () => {
   return (
     <>
       <main>
-        <div className="h-screen bg-main">
+        <div className="min-h-screen bg-main">
           <Nav />
-          <section className="flex flex-col w-screen h-5/6 justify-center items-center bg-main ">
+          <section className="flex flex-col justify-center items-center bg-main mx-8 ">
             <LandingPage />
-            <div className="flex flex-col justify-center items-center font-Roboto mt-16 mb-12 text-xl text-contrast gap-4">
+            <div className="flex flex-col justify-center items-center font-Roboto mt-32 sm:mt-56 text-xl text-contrast gap-4">
               <p>Get Started</p>
               <div
                 onClick={handleToggle}

@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Profile = ({ process, profile, notes }) => {
   return (
     <div className=" text-gray-700 text-sm w-full h-full grid grid-cols-4 grid-rows-2 p-3 gap-5 font-Roboto">

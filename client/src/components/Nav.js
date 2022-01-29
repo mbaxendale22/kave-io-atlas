@@ -11,7 +11,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="w-screen py-8 text-lg text-contrast flex justify-end mb-4 gap-12 font-Montserrat">
+    <div className="w-screen ml-8 sm:ml-0 py-4 sm:py-8 text-lg text-contrast flex justify-end mb-4 gap-12 font-Montserrat">
       <Link to="/">
         <div className="transform duration-200 ease-in hover:scale-125">
           HOME

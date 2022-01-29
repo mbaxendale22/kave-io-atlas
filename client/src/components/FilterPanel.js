@@ -24,12 +24,12 @@ const FilterPanel = ({ user }) => {
     // setShowSlider(false);
   };
   return (
-    <div className="max-h-full text-xs sm:text-base font-Roboto flex flex-col justify-center gap-2">
-      <div className="text-center text-2xl text-light mb-5">
+    <div className="max-h-full text-xs sm:text-base font-Roboto flex flex-col justify-center gap-2 -mt-28">
+      <div className="text-center text-lg sm:text-2xl mt-8 sm:mt-0 text-light sm:mb-5">
         <h2>CHOOSE AT LEAST ONE FILTER BELOW</h2>
         <h2>COMBINE THE FILTERS FOR MORE SPECIFIC RESULTS</h2>
       </div>
-      <section className="text-center border-gray-600 border-2 pt-2 info-card">
+      <section className="text-center border-gray-600 border-2 pt-2 info-card mx-4">
         <h2 className=" text-lg font-Roboto sm:text-xl font-semibold">
           ORIGIN
         </h2>
@@ -199,7 +199,7 @@ const FilterPanel = ({ user }) => {
           </div>
         </div>
       </section>
-      <section className="text-center border-black border-2 rounded-lg bg-light text-contrast shadow-md">
+      <section className="text-center border-black border-2 rounded-lg bg-light text-contrast shadow-md mx-4">
         <h2 className="text-lg sm:text-xl font-semibold">PROCESS</h2>
         <div
           id="process-wrapper"
@@ -237,7 +237,7 @@ const FilterPanel = ({ user }) => {
           </div>
         </div>
       </section>
-      <section className="text-center border-black border-2 pt-2 rounded-lg bg-light text-contrast shadow-md">
+      <section className="text-center border-black border-2 pt-2 rounded-lg bg-light text-contrast shadow-md mx-4">
         <h2 className="text-lg sm:text-xl font-semibold">PROFILE</h2>
         <div
           id="profile-wrapper"
@@ -275,15 +275,15 @@ const FilterPanel = ({ user }) => {
           </div>
         </div>
       </section>
-      <section className="w-full flex justify-evenly border-black border-2 p-8 rounded-lg bg-light text-contrast shadow-md">
+      <section className="flex justify-evenly sm:border-black sm:border-2 sm:rounded-lg sm:bg-light sm:text-contrast sm:shadow-md mx-4">
         <div
-          className=" px-4 py-2 rounded-sm hover:bg-black hover:text-white hover:font-semibold"
+          className=" px-4 py-2 sm:rounded-sm rounded-lg shadow-md sm:shadow-none sm:border-none border-black border-2 bg-light hover:bg-black hover:text-white hover:font-semibold"
           onClick={handleSearch}
         >
           START
         </div>
         <div
-          className=" px-4 py-2 rounded-sm hover:bg-black hover:text-white hover:font-semibold"
+          className="px-4 py-2 sm:rounded-sm rounded-lg shadow-md sm:shadow-none sm:border-none border-black border-2 bg-light hover:bg-black hover:text-white hover:font-semibold"
           onClick={resetFilter}
         >
           RESET
