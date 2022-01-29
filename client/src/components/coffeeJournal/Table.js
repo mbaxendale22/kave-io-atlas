@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useQuery, useQueryClient } from "react-query";
 import { Link } from "react-router-dom";
 import { getUserJournal } from "../../helpers/api";
 

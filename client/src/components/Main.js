@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getUserJournal } from "../helpers/api.js";
@@ -25,9 +25,9 @@ const Main = () => {
   return (
     <>
       <main>
-        <div className="min-h-screen bg-main">
+        <div className="min-h-screen bg-main overflow-x-hidden">
           <Nav />
-          <section className="flex flex-col justify-center items-center bg-main mx-8 ">
+          <section className="flex flex-col justify-center items-center bg-main mx-8">
             <LandingPage />
             <div className="flex flex-col justify-center items-center font-Roboto mt-32 sm:mt-56 text-xl text-contrast gap-4">
               <p>Get Started</p>

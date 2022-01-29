@@ -1,37 +1,32 @@
-import React, { useEffect, useState } from "react";
-import Nav from "../Nav";
-import { useQuery, useMutation, useQueryClient } from "react-query";
-import { useParams, useHistory } from "react-router-dom";
-import {
-  getUserJournalEntry,
-  updateUserJournalEntry,
-  deleteUserJournalEntry,
-} from "../../helpers/api";
-import EditEntry from "./EditEntry";
-import Card from "./Card";
-import Modal from "../Modal";
+import React, { useEffect, useState } from 'react'
+import Nav from '../Nav'
+import { useMutation, useQueryClient } from 'react-query'
+import { useParams } from 'react-router-dom'
+import { getUserJournalEntry, updateUserJournalEntry } from '../../helpers/api'
+import EditEntry from './EditEntry'
+import Card from './Card'
+import Modal from '../Modal'
 
 const CoffeeShow = () => {
-  const [editing, setEditing] = useState(false);
-  const [error, setError] = useState(false);
-  const [modal, setModal] = useState(false);
-  const { id } = useParams();
-  const history = useHistory();
-  const [singleJournalData, setSingleJournalData] = useState(null);
+  const [editing, setEditing] = useState(false)
+  const [error, setError] = useState(false)
+  const [modal, setModal] = useState(false)
+  const { id } = useParams()
+  const [singleJournalData, setSingleJournalData] = useState(null)
 
   useState(() => {
     const getData = async () => {
-      const data = await getUserJournalEntry(id);
-      setSingleJournalData(data);
-    };
-    getData();
-  }, [id]);
+      const data = await getUserJournalEntry(id)
+      setSingleJournalData(data)
+    }
+    getData()
+  }, [id])
 
-  const queryClient = useQueryClient();
+  const queryClient = useQueryClient()
 
   const handleChange = (e) => {
-    let newJournalData = {};
-    e.target.name === "score"
+    let newJournalData = {}
+    e.target.name === 'score'
       ? (newJournalData = {
           ...singleJournalData,
           [e.target.name]: Number(e.target.value),
@@ -39,29 +34,29 @@ const CoffeeShow = () => {
       : (newJournalData = {
           ...singleJournalData,
           [e.target.name]: e.target.value,
-        });
-    setSingleJournalData(newJournalData);
-  };
+        })
+    setSingleJournalData(newJournalData)
+  }
 
   const { mutate: updateEntry } = useMutation(
     () => updateUserJournalEntry(singleJournalData._id, singleJournalData),
     {
       onSuccess: () => {
-        queryClient.setQueryData(["currentEntry"], singleJournalData);
-        setEditing(false);
+        queryClient.setQueryData(['currentEntry'], singleJournalData)
+        setEditing(false)
       },
       onError: () => setError(true),
     }
-  );
+  )
 
-  if (!singleJournalData) return <p>Loading...</p>;
+  if (!singleJournalData) return <p>Loading...</p>
 
   return (
     <div className="h-screen bg-main relative">
       <Nav />
       {modal && (
         <Modal
-          question={"delete this coffee from your journal?"}
+          question={'delete this coffee from your journal?'}
           setModal={setModal}
           entry={singleJournalData._id}
         />
@@ -83,7 +78,7 @@ const CoffeeShow = () => {
         )}
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default CoffeeShow;
+export default CoffeeShow
