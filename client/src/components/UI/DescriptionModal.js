@@ -2,7 +2,7 @@ import React from 'react'
 
 const DescriptionModal = ({ description, setModalDescription }) => {
   return (
-    <div className=" flex flex-col justify-center gap-8 items-center font-Roboto min-h-full border-black border-2">
+    <div className=" flex flex-col justify-center gap-8 items-center font-Roboto min-h-full">
       <p className=" text-sm text-center px-4">{description}</p>
       <div className="flex justify-evenly w-full">
         <button

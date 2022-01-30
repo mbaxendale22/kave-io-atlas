@@ -10,18 +10,11 @@ import { authConfirmed } from '../helpers/auth'
 import Nav from './UI/Nav'
 import Favourite from './coffeeInfo/Favourite.js'
 import Origin from './coffeeInfo/Origin.js'
-import DescriptionModal from './UI/DescriptionModel.js'
+import DescriptionModal from './UI/DescriptionModal.js'
 const Slider = () => {
   const { state } = useLocation()
 
   const { data, isLoading } = useQuery('coffeeInitial', () => testRoute(state))
-  const showModal = () => {
-    if (modalDescription) {
-      return <DescriptionModal />
-    } else {
-      return
-    }
-  }
 
   const [current, setCurrent] = useState(0)
   const [modalDescription, setModalDescription] = useState(false)
@@ -43,7 +36,7 @@ const Slider = () => {
                 if (modalDescription) {
                   return (
                     <div className={
-                      i === current ? 'border-pink-300 border-2 col-span-4 row-span-4' : 'hidden'
+                      i === current ? 'col-span-4 row-span-4' : 'hidden'
                     }>
                     <DescriptionModal setModalDescription={setModalDescription} description={c.description} /> 
                     </div>
