@@ -1,7 +1,9 @@
-import mongoose from 'mongoose';
-import uniqueValidator from 'mongoose-unique-validator';
+import mongoose from 'mongoose'
+import uniqueValidator from 'mongoose-unique-validator'
 
-const journalSchema = mongoose.Schema({
+
+
+const journalSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User' },
   coffee: { type: mongoose.Schema.ObjectId, ref: 'Coffee' },
   roaster: { type: mongoose.Schema.ObjectId, ref: 'Roaster' },
@@ -9,8 +11,14 @@ const journalSchema = mongoose.Schema({
   recipe: { type: String },
   score: { type: Number },
   notes: { type: String, maxlength: 1000 },
-});
+  tasting: {
+    acidity: { type: Number },
+    sweetness: { type: Number },
+    body: { type: Number },
+    finish: { type: Number }
+  }
+})
 
-journalSchema.plugin(uniqueValidator);
+journalSchema.plugin(uniqueValidator)
 
-export default mongoose.model('Journal', journalSchema);
+export default mongoose.model('Journal', journalSchema)

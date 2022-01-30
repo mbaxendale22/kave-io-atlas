@@ -11,6 +11,12 @@ const Favourite = ({ user, coffee, roaster }) => {
     recipe: "What was your brew recipe",
     score: 77,
     notes: "Any thoughts?",
+    tasting: {
+      acidity: 1,
+      sweetness: 1,
+      body: 1,
+      finish: 1
+    }
   });
   const { mutate } = useMutation(addToJournal);
 
