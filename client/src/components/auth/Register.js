@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { Link, useHistory } from "react-router-dom";
 import { postRegister } from "../../helpers/api";
-import Nav from "../Nav";
+import Nav from "../UI/Nav";
 
 const Register = () => {
   const history = useHistory();

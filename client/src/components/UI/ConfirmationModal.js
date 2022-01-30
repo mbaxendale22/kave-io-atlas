@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation, useQueryClient } from "react-query";
-import { deleteUserJournalEntry } from "../helpers/api";
+import { deleteUserJournalEntry } from "../../helpers/api";
 import { useHistory } from "react-router-dom";
 
 const Modal = ({ question, setModal, entry }) => {

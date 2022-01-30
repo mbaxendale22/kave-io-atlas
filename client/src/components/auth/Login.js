@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useMutation } from "react-query";
-import Nav from "../../components/Nav";
+import Nav from "../../components/UI/Nav";
 import { postLogin } from "../../helpers/api";
 
 const Login = () => {

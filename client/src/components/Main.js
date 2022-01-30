@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { getUserJournal } from "../helpers/api.js";
 import FilterPanel from "./FilterPanel.js";
 import LandingPage from "./LandingPage.js";
-import Nav from "./Nav.js";
+import Nav from "./UI/Nav";
 import { BsChevronDoubleDown } from "react-icons/bs";
 
 const Main = () => {

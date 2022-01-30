@@ -7,20 +7,30 @@ import { useQuery } from 'react-query'
 import { testRoute } from '../helpers/api'
 import { useLocation } from 'react-router-dom'
 import { authConfirmed } from '../helpers/auth'
-import Nav from './Nav.js'
+import Nav from './UI/Nav'
 import Favourite from './coffeeInfo/Favourite.js'
 import Origin from './coffeeInfo/Origin.js'
+import DescriptionModal from './UI/DescriptionModel.js'
 const Slider = () => {
   const { state } = useLocation()
 
   const { data, isLoading } = useQuery('coffeeInitial', () => testRoute(state))
+  const showModal = () => {
+    if (modalDescription) {
+      return <DescriptionModal />
+    } else {
+      return
+    }
+  }
 
   const [current, setCurrent] = useState(0)
+  const [modalDescription, setModalDescription] = useState(false)
   const next = () => setCurrent(current === data.length - 1 ? 0 : current + 1)
   const previous = () =>
     setCurrent(current === 0 ? data.length - 1 : current - 1)
 
   if (isLoading) return <p>Loading...</p>
+  console.log(modalDescription)
 
   return (
     <>
@@ -30,16 +40,28 @@ const Slider = () => {
           <div className="grid grid-cols-4 grid-rows-4 gap-y-4 sm:grid-cols-6 sm:grid-rows-6 h-5/6 w-full sm:max-h-5/6 sm:max-w-5/6 px-2">
             {data &&
               data.map((c, i) => {
-                return (
+                if (modalDescription) {
+                  return (
+                    <div className={
+                      i === current ? 'border-pink-300 border-2 col-span-4 row-span-4' : 'hidden'
+                    }>
+                    <DescriptionModal setModalDescription={setModalDescription} description={c.description} /> 
+                    </div>
+                    )
+                     
+                  }
+                    
+                else { 
+                  return (
                   <>
                     <div
                       key={data._id}
                       className={
                         i === current
-                          ? ' col-start-1 col-end-1 flex flex-col justify-center items-center pt-3 m-2 info-card font-Roboto text-sm sm:hidden text-gray-700'
-                          : 'hidden'
+                        ? ' col-start-1 col-end-1 flex flex-col justify-center items-center pt-3 m-2 info-card font-Roboto text-sm sm:hidden text-gray-700'
+                        : 'hidden'
                       }
-                    >
+                      >
                       <p>{c.price}</p>
                       <a
                         className="hover:bg-black px-2 hover:text-white"
@@ -56,7 +78,7 @@ const Slider = () => {
                     <div
                       className={
                         i === current
-                          ? ' col-start-1 col-end-7 row-start-4 row-end-7 sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md info-card overflow-y-scroll'
+                          ? 'col-start-1 col-end-7 row-start-4 row-end-7 hidden sm:flex sm:col-start-4 sm:col-end-7 sm:row-start-1 sm:row-end-7 sm:mx-5 sm:border-2 sm:border-black sm:shadowm-md info-card overflow-y-scroll'
                           : 'hidden'
                       }
                     >
@@ -65,6 +87,20 @@ const Slider = () => {
                         price={c.price}
                         description={c.description}
                       />
+                    </div>
+                    <div
+                      className={
+                        i === current
+                          ? 'col-start-2 col-end-4 row-start-4 row-end-4'
+                          : 'hidden'
+                      }
+                    >
+                      <div
+                        className=" sm:hidden info-card text-center p-4 font-Roboto cursor-pointer text-contrast hover:text-light hover:bg-contrast"
+                        onClick={() => setModalDescription(true)}
+                      >
+                        Show Description
+                      </div>
                     </div>
 
                     {/* Image */}
@@ -165,16 +201,17 @@ const Slider = () => {
                     </div>
                   </>
                 )
+              }
               })}
-          </div>
-        ) : (
-          <div className="flex h-72 justify-center items-center font-Roboto text-contrast text-2xl">
+              </div>
+              ) : (
+                <div className="flex h-72 justify-center items-center font-Roboto text-contrast text-2xl">
             <p>Sorry, we couldn't find any coffees matching your search!</p>
           </div>
         )}
       </section>
     </>
-  )
+    )
 }
 
 export default Slider

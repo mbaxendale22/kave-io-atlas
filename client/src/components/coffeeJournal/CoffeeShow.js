@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Nav from '../Nav'
+import React, { useState } from 'react'
+import Nav from '../UI/Nav'
 import { useMutation, useQueryClient } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getUserJournalEntry, updateUserJournalEntry } from '../../helpers/api'
 import EditEntry from './EditEntry'
 import Card from './Card'
-import Modal from '../Modal'
+import Modal from '../UI/ConfirmationModal'
 
 const CoffeeShow = () => {
   const [editing, setEditing] = useState(false)
