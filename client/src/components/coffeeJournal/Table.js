@@ -22,13 +22,12 @@ const Table = () => {
     return <p>Loading...</p>;
   } else {
     return (
-      <div className="container mx-auto px-4 sm:px-8 max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-8 max-w-3xl ">
         <div className="py-8">
           <div className="flex flex-row mb-1 sm:mb-0 justify-between w-full">
             <h2 className="text-2xl leading-tight font-Montserrat text-contrast uppercase">
               Your Coffees
             </h2>
-            <div className="text-end"></div>
           </div>
           <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -37,60 +36,52 @@ const Table = () => {
                   <tr>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
+                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-xs sm:text-sm uppercase font-Montserrat"
                     >
                       Coffee
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
+                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-xs sm:text-sm uppercase font-Montserrat hidden sm:block"
                     >
                       Origin
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
+                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-xs sm:text-sm uppercase font-Montserrat"
                     >
                       Roaster
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
-                    >
-                      Score
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-sm uppercase font-Montserrat"
+                      className="px-5 py-3 bg-contrast  border-b border-gray-200 text-light  text-left text-xs sm:text-sm uppercase font-Montserrat"
                     ></th>
                   </tr>
                 </thead>
                 <tbody>
                   {journalData.map((entry) => (
                     <tr key={entry._id} className="font-Roboto">
-                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <div className="flex items-center">
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs sm:text-sm">
+                        <div className="flex flex-col items-center">
                           <p className="text-gray-900 whitespace-no-wrap">
                             {entry.coffee.title}
                           </p>
+                          <p className="text-gray-900 sm:hidden whitespace-no-wrap">
+                            {entry.coffee.origin}
+                          </p>
                         </div>
                       </td>
-                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs sm:text-sm hidden sm:block">
                         <p className="text-gray-900 whitespace-no-wrap">
                           {entry.coffee.origin}
                         </p>
                       </td>
-                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs sm:text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
                           {entry.roaster.name}
                         </p>
                       </td>
-                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <p className="text-gray-900 whitespace-no-wrap">
-                          {entry.score}
-                        </p>
-                      </td>
-                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs sm:text-sm">
                         <Link
                           to={{ pathname: `/journal/${entry._id}` }}
                           className="text-indigo-600 hover:text-indigo-900"
