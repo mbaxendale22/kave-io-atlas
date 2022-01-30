@@ -25,7 +25,7 @@ const Nav = () => {
             </div>
           </Link>
           <div
-            className="sm:mr-16 mr-8 cursor-pointer transform duration-200 ease-in hover:scale-125"
+            className="sm:mr-16 cursor-pointer transform duration-200 ease-in hover:scale-125"
             onClick={handleSignOut}
           >
             SIGN OUT
