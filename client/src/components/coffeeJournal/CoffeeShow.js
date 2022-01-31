@@ -13,7 +13,7 @@ const CoffeeShow = () => {
   const [modal, setModal] = useState(false)
   const { id } = useParams()
   const [singleJournalData, setSingleJournalData] = useState(null)
-  console.log(singleJournalData);
+ 
 
   useState(() => {
     const getData = async () => {
@@ -22,6 +22,8 @@ const CoffeeShow = () => {
     }
     getData()
   }, [id])
+
+  console.log(singleJournalData);
 
   const queryClient = useQueryClient()
 
