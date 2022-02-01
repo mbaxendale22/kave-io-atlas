@@ -23,21 +23,30 @@ const CoffeeShow = () => {
     getData()
   }, [id])
 
-  console.log(singleJournalData);
 
   const queryClient = useQueryClient()
 
-  const handleChange = (e) => {
+  const handleChange = (e, metric) => {
     let newJournalData = {}
-    e.target.name === 'score'
-      ? (newJournalData = {
+
+    if (e.target.name === 'score') {
+      newJournalData = {
           ...singleJournalData,
           [e.target.name]: Number(e.target.value),
-        })
-      : (newJournalData = {
+        }
+    } 
+    
+    if (e.target.name === metric ) {
+      newJournalData = { ...singleJournalData }
+      newJournalData.tasting[metric] = Number(e.target.value)
+    }
+    
+    else {
+      newJournalData = {
           ...singleJournalData,
           [e.target.name]: e.target.value,
-        })
+        }
+    }
     setSingleJournalData(newJournalData)
   }
 
