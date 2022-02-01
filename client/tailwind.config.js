@@ -11,7 +11,7 @@ module.exports = {
         xxs: '0.65rem',
       },
       colors: {
-        main: '#5CDB95',
+        main: '#52C586',
         light: '#EDF5E1',
         contrast: '#05386B',
       },
@@ -21,4 +21,10 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-};
+}
+
+
+
+
+
+// #5CDB95
