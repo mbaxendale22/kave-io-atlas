@@ -28,10 +28,10 @@ const Favourite = ({ user, coffee, roaster }) => {
   const [updateJournal, setUpdateJournal] = useState(false);
 
   return (
-    <div className=" text-contrast w-full h-full flex flex-col justify-center items-center text-sm font-Roboto">
+    <div className="w-full h-full flex flex-col justify-center items-center text-sm font-Roboto">
       {updateJournal ? (
         <p
-          className="hover:bg-black hover:text-white cursor-pointer px-2"
+          className="cursor-pointer text-center px-2"
           onClick={() => setUpdateJournal(false)}
         >
           In your Coffee Journal
@@ -39,7 +39,7 @@ const Favourite = ({ user, coffee, roaster }) => {
       ) : (
         <>
           <p
-            className="hover:bg-black hover:text-white cursor-pointer px-2"
+            className="text-center cursor-pointer px-2"
             onClick={handleClick}
           >
             Add to Coffee Journal

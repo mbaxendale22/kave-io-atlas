@@ -147,7 +147,7 @@ const Slider = () => {
                         key={c._id}
                         className={
                           i === current
-                            ? 'opacity-100 info-card m-2 sm:m-0 sm:border-2 sm:border-black sm:shadowm-md col-start-2 col-end-2 row-start-1 row-end-1 sm:col-start-3 sm:col-end-3 sm:row-start-4 sm:row-end-5'
+                            ? 'opacity-100 info-card hover:bg-contrast hover:text-light m-2 sm:m-0 sm:border-2 sm:border-black sm:shadowm-md col-start-2 col-end-2 row-start-1 row-end-1 sm:col-start-3 sm:col-end-3 sm:row-start-4 sm:row-end-5'
                             : 'hidden'
                         }
                       >
