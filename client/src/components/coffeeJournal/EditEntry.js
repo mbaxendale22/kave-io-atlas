@@ -99,7 +99,7 @@ const EditEntry = ({ entry, setEditing, handleChange, updateEntry }) => {
                 <input
                   onChange={handleChange}
                   className="text-gray-800"
-                  placeholder="change notes..."
+                  placeholder="change score..."
                   type="text"
                   name="score"
                 />
