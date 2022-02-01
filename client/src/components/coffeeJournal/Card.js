@@ -6,12 +6,12 @@ import Scores from './Scores'
 const Card = ({ entry, setEditing, setModal }) => {
   const history = useHistory()
   return (
-    <div className="overflow-hidden shadow-lg rounded-lg h-full sm:h-5/6 w-full sm:w-10/12 cursor-pointer m-auto">
-      <div className="w-full block h-full bg-white">
+    <div className="overflow-hidden rounded-lg h-full w-full sm:w-10/12 cursor-pointer m-auto">
+      <div className="w-full block h-full">
         <img
           alt="map of coffee region"
           src={entry.coffee.image}
-          className="max-h-32 sm:max-h-40 w-full object-cover"
+          className="max-h-28 sm:max-h-40 w-full object-cover"
         />
         <div className="mb-2 w-full p-2 bg-contrast text-light flex flex-col sm:flex-row justify-evenly items-center text-base sm:text-xl font-Montserrat uppercase">
           <p className="">{entry.coffee.title}</p>
@@ -21,46 +21,44 @@ const Card = ({ entry, setEditing, setModal }) => {
 
         {/* left hand side */}
 
-        <div className='flex flex-col items-center sm:flex-row w-full h-1/2'>
-          <div className='flex flex-col items-center justify-evenly h-1/2 sm:h-full w-full sm:w-1/2'>
-            <div className='flex flex-col items-center w-full'>
-            <h2 className='font-Montserrat uppercase'>Tasting Scores</h2>
-          <div className="flex justify-evenly w-full">
-            <p>Acidity: {entry.tasting.acidity}</p>
-            <p>Sweetness: {entry.tasting.sweetness}</p>
-            <p>Body: {entry.tasting.body}</p>
-            <p>Finish: {entry.tasting.finish}</p>
-          </div>
+        <div className="flex flex-col items-center sm:flex-row w-full sm:gap-2 h-1/2">
+          <div className="flex flex-col items-center justify-evenly h-48 sm:h-full w-full sm:w-1/2">
+            <div className="flex flex-col items-center w-full info-card sm:border-black sm:border-2 sm:p-4">
+              <h2 className="font-Montserrat uppercase">Tasting Scores</h2>
+              <div className="flex justify-evenly w-full">
+                <p>Acidity: {entry.tasting.acidity}</p>
+                <p>Sweetness: {entry.tasting.sweetness}</p>
+                <p>Body: {entry.tasting.body}</p>
+                <p>Finish: {entry.tasting.finish}</p>
+              </div>
             </div>
-          <div className="flex flex-col items-center">
-            <h2 className='font-Montserrat uppercase'>brewed with</h2>
-            <p>{entry.brew}</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <h2 className='font-Montserrat uppercase'>overall score</h2>
-            <p>{entry.score}</p>
-          </div>
+            <div className="flex flex-col items-center info-card sm:border-2 sm:border-black sm:p-4 w-full">
+              <h2 className="font-Montserrat uppercase">brewed with</h2>
+              <p>{entry.brew}</p>
+            </div>
+            <div className="flex flex-col items-center info-card sm:border-2 sm:border-black sm:p-4 w-full">
+              <h2 className="font-Montserrat uppercase">overall score</h2>
+              <p>{entry.score}</p>
+            </div>
           </div>
 
           {/* right-hand side */}
 
-          <div className='flex flex-col items-center justify-evenly h-1/2 sm:h-full w-full sm:w-1/2'>
-          <div className="flex flex-col items-center">
-            <h2 className='font-Montserrat uppercase'>recipe</h2>
-            <p>{entry.recipe}</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <h2 className='font-Montserrat uppercase'>notes</h2>
-            <p>{entry.notes}</p>
-          </div>
-
+          <div className="flex flex-col items-center justify-start sm:justify-evenly h-32 gap-2 sm:h-full w-full sm:w-1/2">
+            <div className="flex flex-col items-center info-card sm:border-2 sm:border-black sm:p-4 w-full">
+              <h2 className="font-Montserrat uppercase">recipe</h2>
+              <p>{entry.recipe}</p>
+            </div>
+            <div className="flex flex-col items-center info-card sm:border-2 sm:border-black sm:p-4 w-full">
+              <h2 className="font-Montserrat uppercase">notes</h2>
+              <p>{entry.notes}</p>
+            </div>
           </div>
         </div>
- 
 
-      {/* buttons */}
+        {/* buttons */}
 
-        <div className="w-full flex justify-evenly font-Montserrat">
+        <div className="w-full mt-2 flex justify-evenly font-Montserrat">
           <button
             onClick={() => setEditing(true)}
             className="flex-shrink-0 px-6 py-2 text-base font-semibold text-light bg-contrast rounded-lg shadow-md hover:bg-light hover:text-contrast "

@@ -13,7 +13,6 @@ const CoffeeShow = () => {
   const [modal, setModal] = useState(false)
   const { id } = useParams()
   const [singleJournalData, setSingleJournalData] = useState(null)
- 
 
   useState(() => {
     const getData = async () => {
@@ -23,7 +22,6 @@ const CoffeeShow = () => {
     getData()
   }, [id])
 
-
   const queryClient = useQueryClient()
 
   const handleChange = (e, metric) => {
@@ -31,21 +29,19 @@ const CoffeeShow = () => {
 
     if (e.target.name === 'score') {
       newJournalData = {
-          ...singleJournalData,
-          [e.target.name]: Number(e.target.value),
-        }
-    } 
-    
-    if (e.target.name === metric ) {
+        ...singleJournalData,
+        [e.target.name]: Number(e.target.value),
+      }
+    }
+
+    if (e.target.name === metric) {
       newJournalData = { ...singleJournalData }
       newJournalData.tasting[metric] = Number(e.target.value)
-    }
-    
-    else {
+    } else {
       newJournalData = {
-          ...singleJournalData,
-          [e.target.name]: e.target.value,
-        }
+        ...singleJournalData,
+        [e.target.name]: e.target.value,
+      }
     }
     setSingleJournalData(newJournalData)
   }

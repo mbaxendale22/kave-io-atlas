@@ -1,8 +1,14 @@
 import React from 'react'
 
-const Buttons = ({ question, setQuestion, mainOperation, mainFunction, buttonType }) => {
+const Buttons = ({
+  question,
+  setQuestion,
+  mainOperation,
+  mainFunction,
+  buttonType,
+}) => {
   return (
-    <div className="w-full flex justify-evenly font-Montserrat">
+    <div className="w-full flex justify-evenly font-Montserrat mt-2">
       <div
         onClick={() =>
           question === 0 ? setQuestion(0) : setQuestion(question - 1)

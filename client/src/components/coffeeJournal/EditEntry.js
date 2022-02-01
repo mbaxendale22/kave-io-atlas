@@ -5,8 +5,6 @@ import Scores from './Scores'
 const EditEntry = ({ entry, setEditing, handleChange, updateEntry }) => {
   const [question, setQuestion] = useState(0)
 
-  console.log(entry);
-
   return (
     <div className="overflow-hidden shadow-lg rounded-lg h-full sm:h-5/6 w-full sm:w-10/12 cursor-pointer m-auto">
       <div className="w-full block h-full bg-white">
@@ -99,7 +97,7 @@ const EditEntry = ({ entry, setEditing, handleChange, updateEntry }) => {
                 <input
                   onChange={handleChange}
                   className="text-gray-800"
-                  placeholder="change score..."
+                  placeholder="change notes..."
                   type="text"
                   name="score"
                 />
