@@ -14,9 +14,39 @@ const Table = () => {
     getData();
   }, [pageNumber]);
 
+
+  const changeBackgroundOnSelection = (num) => {
+    const buttons = document.getElementById('nav-btns')
+    const btnArray = Array.from(buttons.children)
+    const [ currentActiveBtn ] = btnArray.filter(btn => btn.classList.contains('active-btn'))
+    currentActiveBtn.classList.remove('active-btn');
+    const [nextActiveBtn] = btnArray.filter(btn => btn.innerText === num.toString());
+    nextActiveBtn.classList.add('active-btn')
+  }
+
   const changePage = (num) => {
+    changeBackgroundOnSelection(num)
     setPageNumber(num);
   };
+
+  const nextPage = () => {
+    let currentPage = pageNumber
+    if (pageNumber === 4) {
+      return
+    } else {
+      changeBackgroundOnSelection(currentPage + 1)
+      setPageNumber(currentPage + 1)
+    }
+  }
+  const prevPage = () => {
+    let currentPage = pageNumber
+    if (pageNumber === 1) {
+      return
+    } else {
+      changeBackgroundOnSelection(currentPage - 1)
+      setPageNumber(currentPage - 1)
+    }
+  }
 
   if (!journalData) {
     return <p>Loading...</p>;
@@ -94,10 +124,11 @@ const Table = () => {
                 </tbody>
               </table>
               <div className="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
-                <div className="flex items-center">
+                <div className="flex items-center" id='nav-btns'>
                   <button
                     type="button"
                     className="w-full p-4 border text-base rounded-l-xl text-gray-600 bg-white hover:bg-gray-100"
+                      onClick={prevPage}
                   >
                     <svg
                       width="9"
@@ -112,35 +143,36 @@ const Table = () => {
                   </button>
                   <button
                     type="button"
-                    className="w-full px-4 py-2 border-t border-b text-base text-indigo-500 bg-white hover:bg-gray-100 font-Montserrat "
+                    className="w-full px-4 py-2 border-t border-b text-base hover:bg-gray-100 font-Montserrat active-btn "
                     onClick={() => changePage(1)}
                   >
                     1
                   </button>
                   <button
                     type="button"
-                    className="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100 font-Montserrat"
+                    className="w-full px-4 py-2 border text-base  hover:bg-gray-100 font-Montserrat"
                     onClick={() => changePage(2)}
                   >
                     2
                   </button>
                   <button
                     type="button"
-                    className="w-full px-4 py-2 border-t border-b text-base text-gray-600 bg-white hover:bg-gray-100 font-Montserrat"
+                    className="w-full px-4 py-2 border-t border-b text-base hover:bg-gray-100 font-Montserrat"
                     onClick={() => changePage(3)}
                   >
                     3
                   </button>
                   <button
                     type="button"
-                    className="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100 font-Montserrat"
+                    className="w-full px-4 py-2 border text-base hover:bg-gray-100 font-Montserrat"
                     onClick={() => changePage(4)}
                   >
                     4
                   </button>
                   <button
                     type="button"
-                    className="w-full p-4 border-t border-b border-r text-base  rounded-r-xl text-gray-600 bg-white hover:bg-gray-100"
+                    className="w-full p-4 border-t border-b border-r text-base  rounded-r-xl hover:bg-gray-100"
+                     onClick={nextPage}
                   >
                     <svg
                       width="9"

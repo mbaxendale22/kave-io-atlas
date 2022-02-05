@@ -43,4 +43,8 @@
   .info-card {
     @apply rounded-lg bg-light text-contrast shadow-md;
   }
+
+  .active-btn {
+    @apply bg-contrast text-light
+  }
 }
