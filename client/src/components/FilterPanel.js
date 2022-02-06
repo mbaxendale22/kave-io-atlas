@@ -39,7 +39,7 @@ const FilterPanel = ({ user }) => {
         >
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Boliva"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -49,7 +49,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Brazil"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -59,7 +59,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Colombia"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -69,7 +69,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Costa Rica"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -79,7 +79,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Ecuador"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -89,7 +89,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Ethiopia"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -99,7 +99,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="El Salvador"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -109,7 +109,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Guatemala"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -119,7 +119,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Honduras"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -129,7 +129,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Kenya"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -139,7 +139,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Myanmar"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -149,7 +149,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Mexico"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -159,7 +159,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Nicaragua"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -169,7 +169,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Peru"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -179,7 +179,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Rwanda"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -189,7 +189,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="origin"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Tanzania"
             onClick={(event) =>
               strike(event, "origin-wrapper", filterData, setFilterData)
@@ -207,7 +207,7 @@ const FilterPanel = ({ user }) => {
         >
           <div
             data-for="process"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Washed"
             onClick={(event) =>
               strike(event, "process-wrapper", filterData, setFilterData)
@@ -217,7 +217,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="process"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Honey"
             onClick={(event) =>
               strike(event, "process-wrapper", filterData, setFilterData)
@@ -227,7 +227,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="process"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Natural"
             onClick={(event) =>
               strike(event, "process-wrapper", filterData, setFilterData)
@@ -245,7 +245,7 @@ const FilterPanel = ({ user }) => {
         >
           <div
             data-for="profile"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Filter"
             onClick={(event) =>
               strike(event, "profile-wrapper", filterData, setFilterData)
@@ -255,7 +255,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="profile"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Espresso"
             onClick={(event) =>
               strike(event, "profile-wrapper", filterData, setFilterData)
@@ -265,7 +265,7 @@ const FilterPanel = ({ user }) => {
           </div>
           <div
             data-for="profile"
-            className="transform hover:scale-110 px-2"
+            className="transform hover:scale-110 px-2 cursor-pointer"
             data-id="Omni"
             onClick={(event) =>
               strike(event, "profile-wrapper", filterData, setFilterData)
