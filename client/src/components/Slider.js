@@ -23,7 +23,7 @@ const Slider = () => {
     setCurrent(current === 0 ? data.length - 1 : current - 1)
 
   if (isLoading) return <p>Loading...</p>
-  console.log(modalDescription)
+  
 
   return (
     <>
